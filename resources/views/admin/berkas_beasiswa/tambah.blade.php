@@ -30,7 +30,12 @@
                                 <div class="form-group">
                                     <h6 class="text-primary">Data Mahasiswa</h6>
                                     <label for="nama">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="nama" name="nama">
+                                    <input type="text" class="form-control @error('title')
+                                    is-invalid
+                                    @enderror " id="nama" name="nama" >
+                                    @error('nama')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">

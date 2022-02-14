@@ -83,26 +83,26 @@
             </div>
             <div class="row">
                 <h5>1. Foto KTP</h5>
-                <img src="{{ 'data/foto/'.$exportpdf->ktp }}" width="100%;">
+                <img src="{{ 'data/foto/'.$exportpdf->ktp }}" width="50%;">
             </div>
         </div>
 
         <div class="row">
             <div class="card-body">
                 <h5>2. Foto KK</h5>
-                <img src="{{ 'data/foto/'.$exportpdf->ktp }}" alt="">
+                <img src="{{ 'data/foto/'.$exportpdf->ktp }}"  width="50%;">
             </div>
         </div>
         <div class="row">
             <div class="card-body">
                 <h5>3. Foto kk</h5>
-                <img src="{{ 'data/foto/'.$exportpdf->kk }}" alt="">
+                <img src="{{ 'data/foto/'.$exportpdf->kk }}"  width="50%;">
             </div>
         </div>
         <div class="row">
             <div class="card-body">
                 <h5>4. Transkip Nilai</h5>
-                <img src="" alt="">
+                {{ 'data/pdf/'.$exportpdf->transkip }}
             </div>
         </div>
         <div class="row">

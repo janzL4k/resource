@@ -1,15 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DatakampusController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\LolosBerkasController;
 use App\Http\Controllers\DatamahasiswaController;
 use App\Http\Controllers\BerkasbeasiswaController;
-use App\Http\Controllers\DatakampusController;
 use App\Http\Controllers\MahasiswaCalonController;
 use App\Http\Controllers\MahasiswaLolosController;
-use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,17 +53,33 @@ Route::get('mahasiswa_calon.pdff', [MahasiswaCalonController::class, 'pdff'])->n
 
 //controller Berkas lolos
 Route::get('set_lolos.index', [LolosBerkasController::class, 'index'])->name('set_lolos.index');
+Route::post('/set_lolos.update/{id}/', [LolosBerkasController::class, 'update'])->name('set_lolos.update');
 // Route::get('set_lolos.show', [LolosBerkasController::class, 'show'])->name('set_lolos.show');
 
 //mahasiswa penerima beasiswa
 Route::get('mahasiswa_penerima.index', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.index');
+Route::get('mahasiswa_penerima.export', [MahasiswaLolosController::class, 'export'])->name('mahasiswa_penerima.export');
+Route::get('mahasiswa_penerima.export_pdf', [MahasiswaLolosController::class, 'export_pdf'])->name('mahasiswa_penerima.export_pdf');
 
 
 
 //data kampus penerima
 Route::get('data_kampus.index', [DatakampusController::class, 'index'])->name('data_kampus.index');
+Route::get('kampus.create', [DatakampusController::class, 'create'])->name('kampus.create');
+Route::post('kampus.store', [DatakampusController::class, 'store'])->name('kampus.store');
 
 
 //profile
 Route::get('profile.index', [ProfilController::class, 'index'])->name('profile.index');
+
+
+
+//Pengumuman
+Route::get('pengumuman.index', [PengumumanController::class, 'index'])->name('pengumuman.index');
+Route::get('pengumuman.show', [PengumumanController::class, 'show'])->name('pengumuman.show');
+Route::get('pengumuman.create', [PengumumanController::class, 'create'])->name('pengumuman.create');
+Route::post('pengumuman.store', [PengumumanController::class, 'store'])->name('pengumuman.store');
+Route::get('pengumuman.edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::post('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
+Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 

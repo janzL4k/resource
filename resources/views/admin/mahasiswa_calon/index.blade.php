@@ -36,6 +36,7 @@
                             <th>Universitas</th>
                             <th>Prodi</th>
                             <th>Semester</th>
+
                             <th> Action</th>
                         </tr>
                         @foreach ($mahasiswa_calon as $calon)
@@ -45,6 +46,7 @@
                                 <td>{{ $calon->nim }}</td>
                                 <td>{{ $calon->universitas }}</td>
                                 <td>{{ $calon->prodi }}</td>
+
                                 <td>{{ $calon->semester }}</td>
 
                                 <td class="text-center">

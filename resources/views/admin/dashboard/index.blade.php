@@ -29,26 +29,57 @@
             <div class="card card-statistic-2">
 
                 <div class="card-icon shadow-primary bg-success">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-users-cog"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Mahasiswa Penerima</h4>
+                        <h4>Total Calon</h4>
                     </div>
                     <div class="card-body">
-                        1000
+                        {{ $berkas }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="card card-statistic-2">
-                <div class="card-icon shadow-primary bg-warning">
-                    <i class="fas fa-shopping-bag"></i>
+                <div class="card-icon shadow-primary bg-light">
+                    <i class="fas fa-users"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Kampus Penerima</h4>
+                        <h4>Total Penerima/Lolos</h4>
+                    </div>
+                    <div class="card-body">
+                       {{$diterima}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon shadow-primary bg-danger">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Total Pengumuman</h4>
+                    </div>
+                    <div class="card-body">
+                       {{$pengumuman}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon shadow-primary bg-info">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Kapus Penerima</h4>
                     </div>
                     <div class="card-body">
                         10
@@ -64,7 +95,7 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Pengumuman</h4>
+                        <h4>Total User</h4>
                     </div>
                     <div class="card-body">
                         10

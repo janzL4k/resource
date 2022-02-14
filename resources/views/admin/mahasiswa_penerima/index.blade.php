@@ -14,7 +14,7 @@
         <div class="card-header">
             <h4>Daftar Penerima </h4>
             <div class="card-header-action">
-                <a href="#" class="btn btn-danger btn-icon icon-right">Export Pdf <i class="fas fa-print"></i></a>
+                <a href="{{ route('mahasiswa_penerima.export') }}" class="btn btn-danger btn-icon icon-right">Export Pdf <i class="fas fa-print"></i></a>
               </div>
             <div class="card-header-action p-4">
                 <div class="dropdown d-inline">
@@ -53,26 +53,21 @@
                             <th>Semester</th>
                             <th> Status</th>
                         </tr>
-                        {{-- @foreach ($mahasiswa_calon as $calon)
+                        <?php $no=1; ?>
+                        @foreach ($mahasiswa_penerima as $lolos)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $calon->nama }}</td>
-                                <td>{{ $calon->nim }}</td>
-                                <td>{{ $calon->universitas }}</td>
-                                <td>{{ $calon->prodi }}</td>
-                                <td>{{ $calon->semester }}</td>
-
-                                <td class="text-center">
-                                    <div class="d-flex d-inline justify-content-center">
-                                        <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('mahasiswa_calon.exportpdf', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-print"></i></a>
+                                <td>{{ $lolos->nama }}</td>
+                                <td>{{ $lolos->nim }}</td>
+                                <td>{{ $lolos->universitas }}</td>
+                                <td>{{ $lolos->prodi }}</td>
+                                <td>{{ $lolos->semester }}</td>
+                                <td> <div class="btn btn-success">{{ $lolos->status }}</div></td>
 
 
-                                    </div>
-                                </td>
 
                             </tr>
-                        @endforeach --}}
+                        @endforeach
 
 
                     </tbody>

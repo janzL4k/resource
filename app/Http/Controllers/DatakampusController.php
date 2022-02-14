@@ -8,19 +8,18 @@ use Illuminate\Http\Request;
 class DatakampusController extends Controller
 {
     public function index(){
-        // $results = BerkasModel::where('universitas', 'LIKE', '%' . 'bumigora' . '%')->get();
-        // $results = BerkasModel::where('universitas', 'LIKE', '%' . 'bumigora' . '%')->get();
-
-        $result = BerkasModel::where('universitas', '=', 'bumigora')->first();
-
-        // $id = $result->id;
-        // $klub = $result->klub;
-        // $pemain = $result->pemain;
-
-
-        // dd($results);
-        // $this->cetakArray($results);
-        // $kampus = BerkasModel::where('universitas');
+    $result = BerkasModel::where('universitas', '=', 'bumigora')->first();
         return view('admin.data_kampus.index', compact('result'));
     }
+
+    public function create(){
+
+            return view('admin.data_kampus.create');
+        }
+
+        public function store(Request $request){
+
+            // $kampus = Kampus
+        }
+
 }

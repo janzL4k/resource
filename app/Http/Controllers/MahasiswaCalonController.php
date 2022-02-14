@@ -20,7 +20,7 @@ class MahasiswaCalonController extends Controller
      */
     public function index()
     {
-        $mahasiswa_calon = BerkasModel::all();
+        $mahasiswa_calon = BerkasModel::all()->sortBy('id');
         $no=1;
         return view("admin.mahasiswa_calon.index", compact('mahasiswa_calon', 'no'));
     }
@@ -70,7 +70,7 @@ class MahasiswaCalonController extends Controller
         // $kk->move($path, $namekk);
 
         $berkas_lolos = Mahasiswa::create([
-            'nama' => $request->nama,
+            'nama' => $request->value,
             'nim' => $request->nim,
             'universitas' => $request->universitas,
             'prodi' => $request->prodi,
@@ -154,16 +154,9 @@ class MahasiswaCalonController extends Controller
     public function exportpdf($id)
     {
         $exportpdf= BerkasModel::find($id);
-        // $pdf = PDFreturn response()->download($pathToFile, $name, $headers);
-        // $pdf = PDF::loadview('admin.mahasiswa_calon.index', ['exportpdf'=>$exportpdf]);
-        // return response()->download($pathToFile, $name, $headers);
-        // $pdf = PDF::loadView('pdf.invoice',['exportpdf'=> $exportpdf]);
+
         $pdf = app('dompdf.wrapper');
-        // $pdf->loadView('admin.mahasiswa_calon.index', $exportpdf);
-        // $fileName = $report->issue_number;
-        // return $pdf->stream($fileName.'.pdf');
-
-
+  
 
         $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
         return $pdf->download('Berkas Mahasiswa');

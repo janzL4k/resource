@@ -12,6 +12,13 @@
 
     <div class="card">
         <div class="card-header">
+            <h4> </h4>
+            <div class="card-header-action">
+                <a href="{{ route('kampus.create') }}" class="btn btn-primary"><i class="fas fa-plus">Tambah Kampus
+                    </i></a>
+            </div>
+        </div>
+        <div class="card-header">
             <h4>Daftar Kampus </h4>
             <div class="card-header-action p-4">
                 <div class="dropdown d-inline">

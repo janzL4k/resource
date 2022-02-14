@@ -19,7 +19,7 @@
             <a href="/berkas" class="nav-link "><i class="fas fa-folder"></i> <span>Berkas Beasiswa</span></a>
           </li>
           <li class="nav-item ">
-            <a href="#" class="nav-link "><i class="fas fa-bullhorn"></i> <span>Pengumuman</span></a>
+            <a href="{{ route('pengumuman.index') }}" class="nav-link "><i class="fas fa-bullhorn"></i> <span>Pengumuman</span></a>
           </li>
 
           <li class="nav-item ">
@@ -29,15 +29,9 @@
 
           <li class="menu-header">PENGATURAN</li>
 
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
-            <ul class="dropdown-menu">
-              <li><a href="auth-forgot-password.html">Forgot Password</a></li>
-              <li><a href="auth-login.html">Login</a></li>
-              <li><a class="beep beep-sidebar" href="auth-login-2.html">Login 2</a></li>
-              <li><a href="auth-register.html">Register</a></li>
-              <li><a href="auth-reset-password.html">Reset Password</a></li>
-            </ul>
+          <li class="nav-item">
+            <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Pengguna</span></a>
+
           </li>
         </ul>
 

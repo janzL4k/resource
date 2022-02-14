@@ -39,7 +39,7 @@ class CreateBerkasTable extends Migration
             $table->string('sktm');
             $table->string('sertifikat');
             $table->string('motivation_later');
-           
+            $table->enum('status', ['Lolos', 'Tidak Lolos']);
             $table->timestamps();
         });
     }

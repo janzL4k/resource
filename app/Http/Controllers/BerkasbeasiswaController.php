@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Validator;
 
 
 class BerkasbeasiswaController extends Controller
@@ -40,7 +41,43 @@ class BerkasbeasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request,[
+        //     'nama' => 'required|string',
+        // 'nim'=>'required',
+        // 'inputvideo'=>'required|mimes:mp4'
+        // ]);
+        // $validatedData = $request->validate([
 
+        //     'nama' => 'required|string',
+        //     'nim' => 'required',
+        //     'universitas' => 'required',
+        //     'prodi' => 'required',
+        //     'semester' => 'required|numeric',
+        //     'alamat' => 'required',
+        //     'tgl_lahir' => 'required|date',
+        //     'tmp_lahir' => 'required',
+        //     'jk' => 'required|string',
+        //     'agama' =>  'required|string',
+        //     'ayah' => 'required|string',
+        //     'pekerjaan_ayah' => 'required',
+        //     'ibu' => 'required',
+        //     'pekerjaan_ibu' => 'required',
+        //     'saudara' => 'required',
+        //     'foto' => 'required',
+        //     'ktp' => 'required',
+        //     'kk' => 'required',
+        //     'transkip' =>'required',
+        //     'khs' => 'required',
+        //     'suket_beasiswa' => 'required',
+        //     'sktm' => 'required',
+        //     'sertifikat' => 'required',
+        //     'motivation_later' => 'required',
+
+        // ], [
+        //     'nama.required'=>'nama wajib di isi',
+        //     'nim.required'=>'nim wajib di isi',
+        //     'universitas.required'=>'universitas wajib di isi'
+        // ]);
         // file foto
         $foto = $request->file('foto');
         $namefoto = time() . "_" . $foto->getClientOriginalName();
@@ -114,6 +151,7 @@ class BerkasbeasiswaController extends Controller
             'sktm' => $namesktm,
             'sertifikat' => $namesertifikat,
             'motivation_later' => $namemotivation_later,
+            'status'=>'Tidak Lolos',
             // 'category_id' => $request->category_id,
             // 'agama' =>  $namePhoto,
         ]);
