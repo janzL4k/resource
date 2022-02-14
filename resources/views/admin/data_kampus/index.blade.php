@@ -21,15 +21,7 @@
         <div class="card-header">
             <h4>Daftar Kampus </h4>
             <div class="card-header-action p-4">
-                <div class="dropdown d-inline">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Urut berdasarkan
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item has-icon" href="#"><i class="far fa-clock"></i>Terbaru</a>
-                      <a class="dropdown-item has-icon" href="#"><i class="fas fa-building"></i>Kampus</a>
-                    </div>
-                  </div>
+
             </div>
             <div class="card-header-action">
                 <form>
@@ -53,24 +45,31 @@
                             <th>Nama Kampus</th>
                             <th>Jumlah Pendaftar</th>
                             <th>Penerima</th>
+                            <th>Action</th>
 
                         </tr>
                         <?php $no=1; ?>
-                        @foreach ($result as $calon)
+                        @foreach ($results as $item)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $calon}}</td>
+                                <td>{{ $item->nama}}</td>
+                                <td>{{ $item->kuota_pendaftar}}</td>
+                                <td>{{ $item->kuota_diterima}}</td>
                                 {{-- <td>{{ $calon->nim }}</td>
                                 <td>{{ $calon->universitas }}</td> --}}
                                 {{-- <td>{{ $calon->prodi }}</td>
-                                <td>{{ $calon->semester }}</td>
+                                <td>{{ $calon->semester }}</td> --}}
 
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
-                                        <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('mahasiswa_calon.exportpdf', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-print"></i></a>
+                                        <a href="{{ route('kampus.edit', $item->id) }}" class="btn btn-sm btn-success ml-1"><i
+                                            class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ route('kampus.destroy', $item->id) }}" class="btn btn-sm btn-danger ml-1"><i
+                                            class="fas fa-trash"></i></a>
+                                        {{-- <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('mahasiswa_calon.exportpdf', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-print"></i></a> --}}
 
-                                    </div> --}}
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

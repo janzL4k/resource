@@ -66,7 +66,11 @@ Route::get('mahasiswa_penerima.export_pdf', [MahasiswaLolosController::class, 'e
 //data kampus penerima
 Route::get('data_kampus.index', [DatakampusController::class, 'index'])->name('data_kampus.index');
 Route::get('kampus.create', [DatakampusController::class, 'create'])->name('kampus.create');
+Route::get('kampus.back', [DatakampusController::class, 'back'])->name('kampus.back');
 Route::post('kampus.store', [DatakampusController::class, 'store'])->name('kampus.store');
+Route::get('kampus.destroy/{id}', [DatakampusController::class, 'destroy'])->name('kampus.destroy');
+Route::get('kampus.edit/{id}', [DatakampusController::class, 'edit'])->name('kampus.edit');
+Route::POST('kampus.update', [DatakampusController::class, 'update'])->name('kampus.update');
 
 
 //profile

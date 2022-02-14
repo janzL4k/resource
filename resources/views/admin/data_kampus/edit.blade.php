@@ -20,8 +20,8 @@
 
         </div>
         <div class="section-body">
-            <form action="{{ route('kampus.store') }}" method="post" enctype="multipart/form-data">
-               {{-- @method('PUT') --}}
+            <form action="{{ route('kampus.update') }}" method="post" enctype="multipart/form-data">
+               @method('POST')
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
@@ -32,7 +32,7 @@
                                     <label for="nama">Nama Kampus</label>
                                     <input type="text" class="form-control @error('nama')
                                     is-invalid
-                                    @enderror " id="nama" name="nama" >
+                                    @enderror " id="nama" name="nama" value="{{$editkampus->nama  }}">
                                     @error('nama')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -42,7 +42,7 @@
                                         <label>Kuota Pendaftar</label>
                                         <input type="text" class="form-control @error('kuota_pendaftar')
                                         is-invalid
-                                        @enderror" name="kuota_pendaftar">
+                                        @enderror" name="kuota_pendaftar" value="{{ $editkampus->kuota_pendaftar }}">
                                         @error('kuota_pendaftar')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -51,7 +51,7 @@
                                         <label>Kuota Diterima</label>
                                         <input type="text" class="form-control @error('kuota_diterima')
                                         is-invalid
-                                        @enderror " name="kuota_diterima">
+                                        @enderror " name="kuota_diterima" value="{{ $editkampus->kuota_diterima }}">
                                         @error('kuota_diterima')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
