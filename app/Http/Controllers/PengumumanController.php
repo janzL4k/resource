@@ -15,7 +15,7 @@ class PengumumanController extends Controller
      */
     public function index()
     {
-        $pengumuman = Pengumuman::all();
+        $pengumuman = Pengumuman::get();
       return view('admin.pengumuman.index',compact('pengumuman'));
     }
 
@@ -37,9 +37,9 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
 
-            'judul' => 'required|string',
+            'judul' => 'required',
             'deskripsi' => 'required',
         ], [
             // 'title.required'=>'Judul wajib di isi',
@@ -47,12 +47,14 @@ class PengumumanController extends Controller
             // 'inputvideo.required'=>'Vidio belum diupload'
         ]);
 
-        $pengumuman = Pengumuman::create([
+        Pengumuman::create([
 
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
         ]);
-        return view('admin.pengumuman.index');
+        
+        session()->flash('success', 'Pengumuman berhasil ditambahkan');
+        return redirect()->route('pengumuman.index');
     }
 
     /**
@@ -75,8 +77,9 @@ class PengumumanController extends Controller
      */
     public function edit($id)
     {
-        $pengumuman = Pengumuman::find($id);
-        return view('admin.pengumuman.edit', compact('pengumuman'));
+        $pengumuman = Pengumuman::findOrFail($id);
+
+        return view('admin.pengumuman.edit',['pengumuman' => $pengumuman]);
     }
 
     /**
@@ -88,11 +91,13 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengumuman = Pengumuman::find($id);
+        $pengumuman = Pengumuman::findOrFail($id);
         $pengumuman->judul = $request->judul;
         $pengumuman->deskripsi = $request->deskripsi;
         $pengumuman->save();
-        return redirect(route('pengumuman.index'))->with('success','Data berhasil ditambahkan');
+
+        session()->flash('success', 'Pengumuman berhasil diupdate');
+        return redirect()->route('pengumuman.index');
     }
 
     /**
@@ -106,9 +111,9 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::all();
         $delete = Pengumuman::find($id);
         $delete->delete();
+        $pengumuman->delete();
 
-        session()->flash("success", "Berhasil Dihapus");
-        return redirect()->route('pengumuman.index',compact('pengumuman'));
-    // return view('admin.pengumuman.index', compact('pengumuman'));
+        session()->flash('success', 'Pengumuman berhasil dihapus');
+        return redirect()->route('pengumuman.index');
     }
 }

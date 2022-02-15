@@ -11,8 +11,8 @@
     </div>
 
     <div class="card">
-        <form  action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form  action="{{ route('pengumuman.store') }}" method="POST">
+        @csrf
           <div class="card-header">
             <h4>Buat Pengumuman</h4>
           </div>

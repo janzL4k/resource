@@ -20,7 +20,7 @@
 
         </div>
         <div class="section-body">
-            <form action="{{ route('kampus.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('kampus.store') }}" method="post">
                {{-- @method('PUT') --}}
                 @csrf
                 <div class="row">

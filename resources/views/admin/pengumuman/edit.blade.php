@@ -11,8 +11,9 @@
     </div>
 
     <div class="card">
-        <form  action="/pengumuman.update" method="POST" enctype="multipart/form-data">
+        <form  action="{{ route('pengumuman.update',$pengumuman->id) }}" method="POST">
             @csrf
+            @method('PUT')
 
           <div class="card-header">
             <h4>Buat Pengumuman</h4>

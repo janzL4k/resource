@@ -46,10 +46,9 @@
                             <th>Acktion</th>
 
                         </tr>
-                        <?php $no = 1; ?>
                         @foreach ($pengumuman as $umum)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $umum->judul }}</td>
                                 <td>{{ $umum->deskripsi }}</td>
                                 <td class="text-center">

@@ -100,6 +100,7 @@ Route::get('pengumuman.show', [PengumumanController::class, 'show'])->name('peng
 Route::get('pengumuman.create', [PengumumanController::class, 'create'])->name('pengumuman.create');
 Route::post('pengumuman.store', [PengumumanController::class, 'store'])->name('pengumuman.store');
 Route::get('pengumuman.edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::put('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::post('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
