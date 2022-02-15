@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->enum('tipe', ['admin', 'mahasiswa']);
+            $table->enum('tipe', ['admin', 'mahasiswa'])->default('mahasiswa');
         });
     }
 

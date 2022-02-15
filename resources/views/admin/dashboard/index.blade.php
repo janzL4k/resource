@@ -79,7 +79,7 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Kapus Penerima</h4>
+                        <h4>Kampus Penerima</h4>
                     </div>
                     <div class="card-body">
                         10
