@@ -19,6 +19,7 @@ class CreateAdmin extends Migration
 
             $table->bigInteger('user_id')->unique()->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            
             $table->enum('tipe', ['admin', 'mahasiswa']);
             $table->string('nama_lengkap');
         });

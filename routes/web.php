@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\DashboardController;
@@ -23,12 +24,27 @@ use App\Http\Controllers\MahasiswaLolosController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    if (Auth::user()) {
+        return redirect()->route('home');
+    } else {
+        return redirect()->route('login');
+    }
+});
 
-// dashboard
-Route::get('/', [DashboardController::class, 'index'])->name('/');
+Route::prefix('admin')->group(function () {
+
+    Route::group(['middleware' => 'auth'], function(){
+        // dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+
+    });
+});
+
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::resource('berkas', BerkasbeasiswaController::class);
@@ -86,4 +102,5 @@ Route::post('pengumuman.store', [PengumumanController::class, 'store'])->name('p
 Route::get('pengumuman.edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
 Route::post('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
 
