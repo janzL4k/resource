@@ -13,7 +13,7 @@ class CreateKampusTable extends Migration
      */
     public function up()
     {
-        Schema::create('_kampus', function (Blueprint $table) {
+        Schema::create('kampus', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('kuota_pendaftar');

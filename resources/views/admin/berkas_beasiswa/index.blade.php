@@ -13,7 +13,7 @@
         <div class="card-header">
             <h4>Berkas Pendaftar </h4>
             <div class="card-header-action">
-                <a href="/berkas/create" class="btn btn-primary"><i class="fas fa-plus">Tambah Berkas
+                <a href="{{ route('berkas.create') }}" class="btn btn-primary"><i class="fas fa-plus">Tambah Berkas
                     </i></a>
             </div>
         </div>

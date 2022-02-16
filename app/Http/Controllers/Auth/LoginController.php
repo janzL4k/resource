@@ -27,7 +27,11 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+
     protected $redirectTo = RouteServiceProvider::DASHBOARD;
+
+
 
     /**
      * Create a new controller instance.
@@ -44,4 +48,7 @@ class LoginController extends Controller
     {
     return redirect()->route('admin.dashboard.index');
     }
+
 }
+
+

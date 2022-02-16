@@ -4,9 +4,8 @@
     <div class="section-header">
         <h1>Pengumuman</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Pengumuman</a></div>
-            <div class="breadcrumb-item"><a href="#">index</a></div>
-            {{-- <div class="breadcrumb-item">Advanced Forms</div> --}}
+            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></div>
+            <div class="breadcrumb-item">Pengumuman</div>
         </div>
     </div>
 
@@ -14,7 +13,7 @@
         <div class="card-header">
             <h4>Buat Pengumuman </h4>
             <div class="card-header-action">
-                <a href="{{ route('pengumuman.create') }}" class="btn btn-primary"><i class="fas fa-plus">Buat Pengumuman
+                <a href="{{ route('pengumuman.create') }}" class="btn btn-primary"><i class="fas fa-plus"> Buat Pengumuman
                     </i></a>
             </div>
         </div>
@@ -40,18 +39,16 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <th>No</th>
-                            <th>Judul Pengumuman</th>
-                            <th>Deskripsi</th>
-                            <th>Acktion</th>
-
+                            <th class="text-center">No</th>
+                            <th class="text-center">Judul Pengumuman</th>
+                            <th class="text-center">Deskripsi Pengumuman</th>
+                            <th class="text-center">Action</th>
                         </tr>
-                        <?php $no = 1; ?>
                         @foreach ($pengumuman as $umum)
                             <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $umum->judul }}</td>
-                                <td>{{ $umum->deskripsi }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $umum->judul }}</td>
+                                <td class="text-center">{{ $umum->deskripsi }}</td>
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
                                         <a href="{{ route('pengumuman.edit', $umum->id) }}"

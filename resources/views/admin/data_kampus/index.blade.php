@@ -4,9 +4,8 @@
     <div class="section-header">
         <h1>Data Kampus Penerima</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Kampus</a></div>
-            <div class="breadcrumb-item"><a href="#">index</a></div>
-            {{-- <div class="breadcrumb-item">Advanced Forms</div> --}}
+            <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard.index') }}">Dashboard</a></div>
+            <div class="breadcrumb-item">Data Kampus Penerima</div>
         </div>
     </div>
 
@@ -48,28 +47,25 @@
                             <th>Action</th>
 
                         </tr>
-                        <?php $no=1; ?>
                         @foreach ($results as $item)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama}}</td>
                                 <td>{{ $item->kuota_pendaftar}}</td>
                                 <td>{{ $item->kuota_diterima}}</td>
-                                {{-- <td>{{ $calon->nim }}</td>
-                                <td>{{ $calon->universitas }}</td> --}}
-                                {{-- <td>{{ $calon->prodi }}</td>
-                                <td>{{ $calon->semester }}</td> --}}
 
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
                                         <a href="{{ route('kampus.edit', $item->id) }}" class="btn btn-sm btn-success ml-1"><i
                                             class="fas fa-pencil-alt"></i></a>
-                                    <a href="{{ route('kampus.destroy', $item->id) }}" class="btn btn-sm btn-danger ml-1"><i
-                                            class="fas fa-trash"></i></a>
-                                        {{-- <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('mahasiswa_calon.exportpdf', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-print"></i></a> --}}
-
-                                    </div>
+                                            <a href="{{ route('kampus.show', $item->id) }}"
+                                                class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
+                                            <form action="{{ route('kampus.destroy', $item->id) }}" method="get">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm ml-1"
+                                                    onclick="return confirm('Apa Anda yakin ?');"><i
+                                                        class="fas fa-trash"></i></button>
+                                            </form>
                                 </td>
                             </tr>
                         @endforeach

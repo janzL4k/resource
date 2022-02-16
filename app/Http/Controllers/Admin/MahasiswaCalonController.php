@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-// use Barryvdh\DomPDF;
-// use Barryvdh\DomPDF\Facades\PDF;
 use PDF;
 use App\Models\Mahasiswa;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-// use Barryvdh\DomPDF\ServiceProvider;
-// use Barryvdh\DomPDF\FacadeasPDF;
+use App\Http\Controllers\Controller;
+
 class MahasiswaCalonController extends Controller
 {
     /**
@@ -156,7 +153,7 @@ class MahasiswaCalonController extends Controller
         $exportpdf= BerkasModel::find($id);
 
         $pdf = app('dompdf.wrapper');
-  
+
 
         $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
         return $pdf->download('Berkas Mahasiswa');

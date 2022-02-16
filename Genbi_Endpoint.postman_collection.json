@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "a7f59aee-40c3-4913-aeac-990caeb283af",
+		"name": "Genbi_Endpoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Dayat",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "dayat@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "dayat123",
+							"type": "default"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "dayat123",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "dayat@gmail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "dayat123",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pengumuman",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI5NThkNzk5YzIyYTk3OTM4YjA3Y2QwMzA0MzM1NDgwZGEwNDcyZjAyNGVmNmY4YWY2OGJiMjM5YzVjMDJmNDcwNWE1MTY5MzI3ZTNiYjUiLCJpYXQiOjE2NDQ5OTczNzkuODc2MjEyLCJuYmYiOjE2NDQ5OTczNzkuODc2MjE5LCJleHAiOjE2NzY1MzMzNzkuNTQ3MzY4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RQICCVUVXAf1oGt4-3rpisKH3nG5B4YyPROwDnK35jnHmrxMUm_Fg1sPb52gXRzakCLXEtryzx3yC60EJbw3QRRuX8VkPiErzB9TiA_LAsDCjm6gP7T0m8qp6wQVW_KRvhxAY6PpfCMqDttiqJxywI5X9Teso6d-3-SDS5bdgb3JUtQ-lsaKgEGIfL8GYUYhuDNHdmIatva2a0J1mKB3vmmNRZbhOaKZrit_F9NdKJTqlnqH-TSI8U3O2x6F5rF-lrkaDfKrAWbZ8JAWFYo5lDLo8szsfKY0svdajkR_So2MavLS38hDGxK31S6gsKOeGnoU0quLmtr-oDPWjvFx31mBIOr6cYHvBXMhuMCNsGFl8m0Gf6a1uHfGR8StBWuibsgkAdLATXaoOv18R9Kd1Ec2lmkdhNdGFHZdqnFFloLPx352c-IpeHhkWahwm_XikVfca8lCrVl6ULYr_ksr9yWrB-0SGjwBz8RCVRu5Tnm8yUnp50GNpTkbTOKa4FOQa3mm_CJGLre55mlOAEYmH0j6cxU2PuXbKEHHKzKF2aG-xw5s3TX5_ng92jsCY9LDzcpPQ258Yvkf-tIIjOi-d791tVGmnN8gclbdyxPKwdCQ4Zb8TjDaW5Js0MpvRHXtdL8v2iollD8-2QqWKnzAqYL4s93d6nOlxVY6qjgI02I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "judul",
+							"value": "test pengumuman",
+							"type": "default"
+						},
+						{
+							"key": "deskripsi",
+							"value": "coba pengumuman",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pengumuman",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pengumuman"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pengumuman/index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI5NThkNzk5YzIyYTk3OTM4YjA3Y2QwMzA0MzM1NDgwZGEwNDcyZjAyNGVmNmY4YWY2OGJiMjM5YzVjMDJmNDcwNWE1MTY5MzI3ZTNiYjUiLCJpYXQiOjE2NDQ5OTczNzkuODc2MjEyLCJuYmYiOjE2NDQ5OTczNzkuODc2MjE5LCJleHAiOjE2NzY1MzMzNzkuNTQ3MzY4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RQICCVUVXAf1oGt4-3rpisKH3nG5B4YyPROwDnK35jnHmrxMUm_Fg1sPb52gXRzakCLXEtryzx3yC60EJbw3QRRuX8VkPiErzB9TiA_LAsDCjm6gP7T0m8qp6wQVW_KRvhxAY6PpfCMqDttiqJxywI5X9Teso6d-3-SDS5bdgb3JUtQ-lsaKgEGIfL8GYUYhuDNHdmIatva2a0J1mKB3vmmNRZbhOaKZrit_F9NdKJTqlnqH-TSI8U3O2x6F5rF-lrkaDfKrAWbZ8JAWFYo5lDLo8szsfKY0svdajkR_So2MavLS38hDGxK31S6gsKOeGnoU0quLmtr-oDPWjvFx31mBIOr6cYHvBXMhuMCNsGFl8m0Gf6a1uHfGR8StBWuibsgkAdLATXaoOv18R9Kd1Ec2lmkdhNdGFHZdqnFFloLPx352c-IpeHhkWahwm_XikVfca8lCrVl6ULYr_ksr9yWrB-0SGjwBz8RCVRu5Tnm8yUnp50GNpTkbTOKa4FOQa3mm_CJGLre55mlOAEYmH0j6cxU2PuXbKEHHKzKF2aG-xw5s3TX5_ng92jsCY9LDzcpPQ258Yvkf-tIIjOi-d791tVGmnN8gclbdyxPKwdCQ4Zb8TjDaW5Js0MpvRHXtdL8v2iollD8-2QqWKnzAqYL4s93d6nOlxVY6qjgI02I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "judul",
+							"value": "test pengumuman",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "deskripsi",
+							"value": "coba pengumuman",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pengumuman/index",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pengumuman",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/pengumuman/detail/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI5NThkNzk5YzIyYTk3OTM4YjA3Y2QwMzA0MzM1NDgwZGEwNDcyZjAyNGVmNmY4YWY2OGJiMjM5YzVjMDJmNDcwNWE1MTY5MzI3ZTNiYjUiLCJpYXQiOjE2NDQ5OTczNzkuODc2MjEyLCJuYmYiOjE2NDQ5OTczNzkuODc2MjE5LCJleHAiOjE2NzY1MzMzNzkuNTQ3MzY4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RQICCVUVXAf1oGt4-3rpisKH3nG5B4YyPROwDnK35jnHmrxMUm_Fg1sPb52gXRzakCLXEtryzx3yC60EJbw3QRRuX8VkPiErzB9TiA_LAsDCjm6gP7T0m8qp6wQVW_KRvhxAY6PpfCMqDttiqJxywI5X9Teso6d-3-SDS5bdgb3JUtQ-lsaKgEGIfL8GYUYhuDNHdmIatva2a0J1mKB3vmmNRZbhOaKZrit_F9NdKJTqlnqH-TSI8U3O2x6F5rF-lrkaDfKrAWbZ8JAWFYo5lDLo8szsfKY0svdajkR_So2MavLS38hDGxK31S6gsKOeGnoU0quLmtr-oDPWjvFx31mBIOr6cYHvBXMhuMCNsGFl8m0Gf6a1uHfGR8StBWuibsgkAdLATXaoOv18R9Kd1Ec2lmkdhNdGFHZdqnFFloLPx352c-IpeHhkWahwm_XikVfca8lCrVl6ULYr_ksr9yWrB-0SGjwBz8RCVRu5Tnm8yUnp50GNpTkbTOKa4FOQa3mm_CJGLre55mlOAEYmH0j6cxU2PuXbKEHHKzKF2aG-xw5s3TX5_ng92jsCY9LDzcpPQ258Yvkf-tIIjOi-d791tVGmnN8gclbdyxPKwdCQ4Zb8TjDaW5Js0MpvRHXtdL8v2iollD8-2QqWKnzAqYL4s93d6nOlxVY6qjgI02I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/pengumuman/detail/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pengumuman",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:8000/api/berkas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI5NThkNzk5YzIyYTk3OTM4YjA3Y2QwMzA0MzM1NDgwZGEwNDcyZjAyNGVmNmY4YWY2OGJiMjM5YzVjMDJmNDcwNWE1MTY5MzI3ZTNiYjUiLCJpYXQiOjE2NDQ5OTczNzkuODc2MjEyLCJuYmYiOjE2NDQ5OTczNzkuODc2MjE5LCJleHAiOjE2NzY1MzMzNzkuNTQ3MzY4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RQICCVUVXAf1oGt4-3rpisKH3nG5B4YyPROwDnK35jnHmrxMUm_Fg1sPb52gXRzakCLXEtryzx3yC60EJbw3QRRuX8VkPiErzB9TiA_LAsDCjm6gP7T0m8qp6wQVW_KRvhxAY6PpfCMqDttiqJxywI5X9Teso6d-3-SDS5bdgb3JUtQ-lsaKgEGIfL8GYUYhuDNHdmIatva2a0J1mKB3vmmNRZbhOaKZrit_F9NdKJTqlnqH-TSI8U3O2x6F5rF-lrkaDfKrAWbZ8JAWFYo5lDLo8szsfKY0svdajkR_So2MavLS38hDGxK31S6gsKOeGnoU0quLmtr-oDPWjvFx31mBIOr6cYHvBXMhuMCNsGFl8m0Gf6a1uHfGR8StBWuibsgkAdLATXaoOv18R9Kd1Ec2lmkdhNdGFHZdqnFFloLPx352c-IpeHhkWahwm_XikVfca8lCrVl6ULYr_ksr9yWrB-0SGjwBz8RCVRu5Tnm8yUnp50GNpTkbTOKa4FOQa3mm_CJGLre55mlOAEYmH0j6cxU2PuXbKEHHKzKF2aG-xw5s3TX5_ng92jsCY9LDzcpPQ258Yvkf-tIIjOi-d791tVGmnN8gclbdyxPKwdCQ4Zb8TjDaW5Js0MpvRHXtdL8v2iollD8-2QqWKnzAqYL4s93d6nOlxVY6qjgI02I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYmU0ODFiMDM0MzJhZmRlMGQ1NTVlYTFiMzI1OTRiZmU0NzUxOTkwOGZmNTBjYWU2NGYwOWNjZWU3NmJmODBlZWI5NTQ5MTZiMWZlMWMyZDEiLCJpYXQiOjE2NDQ4OTg5MjkuMTQ5Mjg5LCJuYmYiOjE2NDQ4OTg5MjkuMTQ5MywiZXhwIjoxNjc2NDM0OTI5LjExNTg3NCwic3ViIjoiMiIsInNjb3BlcyI6W119.jFAVD4fSoFUHmk4rFtlI5dgzvxHSbBqlYfILrCFif41RlfymRkOqUJ9i8ZaVgH7ujTPXhbTou8fh-6ux28nfQX36_2vYb64xkIRuSif1mLLoSAU8hYxvS5mYTscfsfXXxeHshUerTgp_Dez3hZ_m_esP2rI15f65XLw2M4zQDa7Mz86fDDv6XYIudAE1MRWMA_vHTDZ9X6fXvJ3q-NuvTEKX9JlBNrJeYX8yeHvGbhyeygoaHh9c027mbo8TFnHEiyxtvnGuVkpjy_wMcVbiHzgJeNWblS7fJsmAJxni6OBquSTPLNO4YMEKVIlx9WRK69iN2CLC05R7QAnvo5vNq32z56EajAE7F9iSUx93siNfNMKIwRmbv5CNp8pYok1c0cLQAq-4o7dQ50nCVzHvHanBGd8Lw_Xef9ZMrhXnjoCTTV6kqSpV0amlsf3Rt2o6lUKH5Cx0wckNhscjKVY1P9jukjVWg0f7euZceXTD_3oNnrgU8CCzWVYX4k_JLsegCwiTdCQzXPBvwzSs-v9ZP2FZpABb_mBoLGy5fZd41wcjb660cWOatSZolzX1ZbqfAY8qXVEMVpTXOpwyHF4Iy22Wt-HXhh3DPNFK5HuoatulxZ60TX8ggfeBL-nFgiXpfR4EQt_4BuFmom_bHTG5i7cKOyy1a_m5wTfKF2vTla4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama",
+							"value": "dayat",
+							"type": "default"
+						},
+						{
+							"key": "nim",
+							"value": "1901010263",
+							"type": "default"
+						},
+						{
+							"key": "universitas",
+							"value": "ubg",
+							"type": "default"
+						},
+						{
+							"key": "prodi",
+							"value": "ilkom",
+							"type": "default"
+						},
+						{
+							"key": "semester",
+							"value": "5",
+							"type": "default"
+						},
+						{
+							"key": "alamat",
+							"value": "blk",
+							"type": "default"
+						},
+						{
+							"key": "tgl_lahir",
+							"value": "2000-10-25",
+							"type": "default"
+						},
+						{
+							"key": "tmp_lahir",
+							"value": "blkk",
+							"type": "default"
+						},
+						{
+							"key": "jk",
+							"value": "Laki-Laki",
+							"type": "default"
+						},
+						{
+							"key": "agama",
+							"value": "islam",
+							"type": "default"
+						},
+						{
+							"key": "ayah",
+							"value": "manusia",
+							"type": "default"
+						},
+						{
+							"key": "pekerjaan_ayah",
+							"value": "tani",
+							"type": "default"
+						},
+						{
+							"key": "ibu",
+							"value": "manusia",
+							"type": "default"
+						},
+						{
+							"key": "pekerjaan_ibu",
+							"value": "nnnn",
+							"type": "default"
+						},
+						{
+							"key": "saudara",
+							"value": "3",
+							"type": "default"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/D:/bg1.png"
+						},
+						{
+							"key": "ktp",
+							"type": "file",
+							"src": "/D:/img.jpg"
+						},
+						{
+							"key": "kk",
+							"type": "file",
+							"src": "/D:/bg1.png"
+						},
+						{
+							"key": "transkip",
+							"type": "file",
+							"src": "/D:/1901010263-M.Hidayatullah -Tugas 1 .pdf"
+						},
+						{
+							"key": "khs",
+							"type": "file",
+							"src": "/D:/1901010263-M.Hidayatullah -Tugas 1 .pdf"
+						},
+						{
+							"key": "suket_beasiswa",
+							"type": "file",
+							"src": "/D:/bg1.png"
+						},
+						{
+							"key": "sktm",
+							"type": "file",
+							"src": "/D:/1901010263-M.Hidayatullah -Tugas 1 .pdf"
+						},
+						{
+							"key": "sertifikat",
+							"type": "file",
+							"src": "/D:/1901010263-M.Hidayatullah -Tugas 1 .pdf"
+						},
+						{
+							"key": "motivation_later",
+							"type": "file",
+							"src": "/D:/1901010263-M.Hidayatullah -Tugas 1 .pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/berkas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"berkas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI5NThkNzk5YzIyYTk3OTM4YjA3Y2QwMzA0MzM1NDgwZGEwNDcyZjAyNGVmNmY4YWY2OGJiMjM5YzVjMDJmNDcwNWE1MTY5MzI3ZTNiYjUiLCJpYXQiOjE2NDQ5OTczNzkuODc2MjEyLCJuYmYiOjE2NDQ5OTczNzkuODc2MjE5LCJleHAiOjE2NzY1MzMzNzkuNTQ3MzY4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RQICCVUVXAf1oGt4-3rpisKH3nG5B4YyPROwDnK35jnHmrxMUm_Fg1sPb52gXRzakCLXEtryzx3yC60EJbw3QRRuX8VkPiErzB9TiA_LAsDCjm6gP7T0m8qp6wQVW_KRvhxAY6PpfCMqDttiqJxywI5X9Teso6d-3-SDS5bdgb3JUtQ-lsaKgEGIfL8GYUYhuDNHdmIatva2a0J1mKB3vmmNRZbhOaKZrit_F9NdKJTqlnqH-TSI8U3O2x6F5rF-lrkaDfKrAWbZ8JAWFYo5lDLo8szsfKY0svdajkR_So2MavLS38hDGxK31S6gsKOeGnoU0quLmtr-oDPWjvFx31mBIOr6cYHvBXMhuMCNsGFl8m0Gf6a1uHfGR8StBWuibsgkAdLATXaoOv18R9Kd1Ec2lmkdhNdGFHZdqnFFloLPx352c-IpeHhkWahwm_XikVfca8lCrVl6ULYr_ksr9yWrB-0SGjwBz8RCVRu5Tnm8yUnp50GNpTkbTOKa4FOQa3mm_CJGLre55mlOAEYmH0j6cxU2PuXbKEHHKzKF2aG-xw5s3TX5_ng92jsCY9LDzcpPQ258Yvkf-tIIjOi-d791tVGmnN8gclbdyxPKwdCQ4Zb8TjDaW5Js0MpvRHXtdL8v2iollD8-2QqWKnzAqYL4s93d6nOlxVY6qjgI02I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

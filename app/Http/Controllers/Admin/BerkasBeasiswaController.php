@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Validator;
+use App\Http\Controllers\Controller;
 
-
-class BerkasbeasiswaController extends Controller
+class BerkasBeasiswaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $title="Dashboard GenBi";
@@ -23,62 +16,42 @@ class BerkasbeasiswaController extends Controller
         return view("admin.berkas_beasiswa.index", compact('datas', 'no', 'title'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
        return view('admin.berkas_beasiswa.tambah');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'nama' => 'required|string',
-        // 'nim'=>'required',
-        // 'inputvideo'=>'required|mimes:mp4'
-        // ]);
-        // $validatedData = $request->validate([
 
-        //     'nama' => 'required|string',
-        //     'nim' => 'required',
-        //     'universitas' => 'required',
-        //     'prodi' => 'required',
-        //     'semester' => 'required|numeric',
-        //     'alamat' => 'required',
-        //     'tgl_lahir' => 'required|date',
-        //     'tmp_lahir' => 'required',
-        //     'jk' => 'required|string',
-        //     'agama' =>  'required|string',
-        //     'ayah' => 'required|string',
-        //     'pekerjaan_ayah' => 'required',
-        //     'ibu' => 'required',
-        //     'pekerjaan_ibu' => 'required',
-        //     'saudara' => 'required',
-        //     'foto' => 'required',
-        //     'ktp' => 'required',
-        //     'kk' => 'required',
-        //     'transkip' =>'required',
-        //     'khs' => 'required',
-        //     'suket_beasiswa' => 'required',
-        //     'sktm' => 'required',
-        //     'sertifikat' => 'required',
-        //     'motivation_later' => 'required',
+        $request->validate([
+            "nama" => "required",
+            "nim" => "required",
+            "universitas" => "required",
+            "prodi" => "required",
+            "semester" => "required|numeric",
+            "alamat" => "required",
+            "tgl_lahir" => "required|date",
+            "tmp_lahir" => "required",
+            "jk" => "required|in:Laki-Laki,Perempuan",
+            "agama" => "required",
+            "ayah" => "required",
+            "pekerjaan_ayah" => "required",
+            "ibu" => "required",
+            "pekerjaan_ibu" => "required",
+            "saudara" => "required",
+            "foto" => "required|image|mimes:jpeg,png,jpg|max:5048",
+            "ktp" => "required|image|mimes:jpeg,png,jpg|max:5048",
+            "kk" => "required|image|mimes:jpeg,png,jpg|max:5048",
+            "transkip"=> "required|mimes:pdf|max:10000",
+            "khs" => "required|mimes:pdf|max:10000",
+            "suket_beasiswa"=> "required|image|mimes:jpeg,png,jpg|max:5048",
+            "sktm"=> "required|mimes:pdf|max:10000",
+            "sertifikat"=> "required|mimes:pdf|max:10000",
+            "motivation_later" => "required|mimes:pdf|max:10000",
+        ]);
 
-        // ], [
-        //     'nama.required'=>'nama wajib di isi',
-        //     'nim.required'=>'nim wajib di isi',
-        //     'universitas.required'=>'universitas wajib di isi'
-        // ]);
-        // file foto
         $foto = $request->file('foto');
         $namefoto = time() . "_" . $foto->getClientOriginalName();
         $path = 'data/foto';
@@ -125,7 +98,7 @@ class BerkasbeasiswaController extends Controller
         $path = 'data/pdf';
         $motivation_later->move($path, $namemotivation_later);
 
-        $berkas = BerkasModel::create([
+         BerkasModel::create([
             'nama' => $request->nama,
             'nim' => $request->nim,
             'universitas' => $request->universitas,
@@ -151,62 +124,31 @@ class BerkasbeasiswaController extends Controller
             'sktm' => $namesktm,
             'sertifikat' => $namesertifikat,
             'motivation_later' => $namemotivation_later,
-            'status'=>'Tidak Lolos',
-            // 'category_id' => $request->category_id,
-            // 'agama' =>  $namePhoto,
+            'status'=>'Tidak Lolos'
         ]);
 
 
-        session()->flash("success", "Berhasil Diatambah");
+        session()->flash("success", "Berkas Berhasil Ditambah");
         return redirect()->route('berkas.index');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $detail_berkas = BerkasModel::find($id);
-        session()->flash("success", "Berhasil Dihapus");
-       return view('admin.berkas_beasiswa.detail', compact('detail_berkas'));
+        $detail_berkas = BerkasModel::findOrFail($id);
+
+        return view('admin.berkas_beasiswa.detail', compact('detail_berkas'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        return view('admin.berkas_beasiswa.detail');
+    //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $delete = BerkasModel::find($id);
+        $delete = BerkasModel::findOrFail($id);
         $delete->delete();
 
         session()->flash("success", "Berhasil Dihapus");

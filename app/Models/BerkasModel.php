@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BerkasModel extends Model
 {
-    protected $table = 'berkas';
+    public $table = 'berkas';
+    
     protected $guarded = [];
 
 
