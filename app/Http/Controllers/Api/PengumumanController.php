@@ -60,7 +60,7 @@ class PengumumanController extends Controller
                     "status" => 200,
                     "message" => "List Data Pengumuman"
                 ],
-                "data" => $pengumuman->posts()->latest()->paginate(6)
+                "data" => $pengumuman->latest()->paginate(6)
             ], 200);
 
         }else {
