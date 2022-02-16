@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login &mdash; GENBI</title>
+    <title>Login &mdash; GENBI NTB</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/img/school.svg') }}" type="image/x-icon">
 
@@ -48,7 +48,7 @@
                                             placeholder="Masukkan Alamat Email" value="{{ old('email') }}" tabindex="1"
                                             required autofocus>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="text-danger">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -72,7 +72,7 @@
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" name="remember" class="custom-control-input"
                                                 tabindex="3" id="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                            <label class="custom-control-label" for="remember-me">ingat saya</label>
                                         </div>
                                     </div>
 

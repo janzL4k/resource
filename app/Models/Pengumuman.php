@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengumuman extends Model
 {
-    public $table = "_pengumuman";
+    public $table = "pengumuman";
     protected $guarded = [];
 }

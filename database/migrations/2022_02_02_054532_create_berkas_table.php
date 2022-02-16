@@ -23,7 +23,7 @@ class CreateBerkasTable extends Migration
             $table->string('alamat');
             $table->date('tgl_lahir');
             $table->string('tmp_lahir');
-            $table->string('jk');
+            $table->enum('jk', ['Laki-Laki', 'Perempuan']);
             $table->string('agama');
             $table->string('ayah');
             $table->string('pekerjaan_ayah');

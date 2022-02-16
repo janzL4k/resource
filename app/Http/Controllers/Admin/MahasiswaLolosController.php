@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-// use Barryvdh\DomPDF\PDF;
+
 use App\Models\Mahasiswa;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use PDF;
 
 class MahasiswaLolosController extends Controller
@@ -27,7 +27,7 @@ public function export(){
 
     $pdf->loadview('admin.mahasiswa_penerima.export',['mahasiswa_penerima'=>$mahasiswa_penerima]);
 
-    return $pdf->download('Mahasiswa Lolos');
+    return $pdf->download('Mahasiswa Lolos.pdf');
 }
 public function export_pdf(){
     $mahasiswa_penerima = BerkasModel::where('status', 'Lolos')->get();

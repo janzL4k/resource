@@ -10,13 +10,17 @@ class PengumumanController extends Controller
 {
     public function index()
     {
-        $data = Pengumuman::all();
+        $pengumuman = Pengumuman::latest()->paginate(10);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'list data berkas',
-            'data' => $data
-        ], 200);
+            return response()->json([
+
+                "response" => [
+                    "status" => 200,
+                    "message" => "List Data Pengumuman"
+                ],
+
+                "data" => $pengumuman
+            ], 200);
     }
 
 
@@ -35,24 +39,39 @@ class PengumumanController extends Controller
         ]);
 
         return response()->json([
-            'status' => 'success',
-            'message' => 'data success created',
-            'data' => [
-                'pengumuman' => $data,
+
+            "response" => [
+                "status" => 200,
+                "message" => "Pengumuman Succes Created!"
             ],
+
+            "data" => $data
         ], 200);
     }
 
     public function show($id)
     {
-        $data = Pengumuman::findOrFail($id);
+        $pengumuman = Pengumuman::findOrFail($id);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'list data pengumuman',
-            'data' => [
-                'pengumuman' => $data,
-            ],
-        ], 200);
-    }
+        if($pengumuman)
+        {
+            return response()->json([
+                "response" => [
+                    "status" => 200,
+                    "message" => "List Data Pengumuman"
+                ],
+                "data" => $pengumuman->posts()->latest()->paginate(6)
+            ], 200);
+
+        }else {
+
+            return response()->json([
+                "response" => [
+                    "status" => 404,
+                    "message" => "Data Pengumuman Tidak Ditemukan!"
+                ],
+                "data" => null
+            ], 404);
+        }
+     }
 }

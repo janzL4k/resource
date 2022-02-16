@@ -9,7 +9,7 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $table = "mahasiswa";
+    public $table = "mahasiswa";
 
     protected $guarded = ["id"];
 

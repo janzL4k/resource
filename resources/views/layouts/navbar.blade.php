@@ -12,11 +12,11 @@
             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
                 class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+            <div class="d-sm-none d-lg-inline-block">Hallo, {{ auth()->user()->name }}</div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
 
-            <a href="{{ route('profile.index') }}" class="dropdown-item has-icon">
+            <a href="{{ route('profil.index') }}" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
             </a>
 

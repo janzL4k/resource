@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kampus extends Model
 {
-    protected $table = "_kampus";
+    public $table = "kampus";
 
     protected $guarded = ["id"];
 

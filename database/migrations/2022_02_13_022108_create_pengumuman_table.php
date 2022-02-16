@@ -13,10 +13,10 @@ class CreatePengumumanTable extends Migration
      */
     public function up()
     {
-        Schema::create('_pengumuman', function (Blueprint $table) {
+        Schema::create('pengumuman', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->timestamps();
         });
     }

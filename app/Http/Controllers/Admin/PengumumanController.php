@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 
 class PengumumanController extends Controller
 {
@@ -41,19 +41,14 @@ class PengumumanController extends Controller
 
             'judul' => 'required',
             'deskripsi' => 'required',
-        ], [
-            // 'title.required'=>'Judul wajib di isi',
-            // 'deskripsi.required'=>'Deskripsi wajib di isi',
-            // 'inputvideo.required'=>'Vidio belum diupload'
         ]);
 
         Pengumuman::create([
-
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
         ]);
-        
-        session()->flash('success', 'Pengumuman berhasil ditambahkan');
+
+        session()->flash('success', 'Pengumuman berhasil Ditambahkan');
         return redirect()->route('pengumuman.index');
     }
 
@@ -65,8 +60,9 @@ class PengumumanController extends Controller
      */
     public function show($id)
     {
-        $details = Pengumuman::find($id);
-        return view('admin.pengumuman.detail', compact('details'));
+        $details = Pengumuman::findOrFail($id);
+
+        return view('admin.pengumuman.detail', ['details'=> $details]);
     }
 
     /**
@@ -96,7 +92,7 @@ class PengumumanController extends Controller
         $pengumuman->deskripsi = $request->deskripsi;
         $pengumuman->save();
 
-        session()->flash('success', 'Pengumuman berhasil diupdate');
+        session()->flash('success', 'Pengumuman berhasil Diupdate');
         return redirect()->route('pengumuman.index');
     }
 
@@ -108,12 +104,11 @@ class PengumumanController extends Controller
      */
     public function destroy($id)
     {
-        $pengumuman = Pengumuman::all();
-        $delete = Pengumuman::find($id);
+        $delete = Pengumuman::findOrFail($id);
         $delete->delete();
-        $pengumuman->delete();
 
-        session()->flash('success', 'Pengumuman berhasil dihapus');
+
+        session()->flash('success', 'Pengumuman berhasil Dihapus');
         return redirect()->route('pengumuman.index');
     }
 }

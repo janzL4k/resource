@@ -21,7 +21,6 @@
         </div>
         <div class="section-body">
             <form action="{{ route('kampus.store') }}" method="post">
-               {{-- @method('PUT') --}}
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
@@ -39,22 +38,21 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Kuota Pendaftar</label>
+                                        <label for="kuota_pendaftar">Kuota Pendaftar</label>
                                         <input type="text" class="form-control @error('kuota_pendaftar')
-                                        is-invalid
-                                        @enderror" name="kuota_pendaftar">
+                                        is-invalid @enderror" name="kuota_pendaftar" id="kuota_pendaftar">
                                         @error('kuota_pendaftar')
                                         <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                       @enderror
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Kuota Diterima</label>
                                         <input type="text" class="form-control @error('kuota_diterima')
                                         is-invalid
-                                        @enderror " name="kuota_diterima">
+                                        @enderror " name="kuota_diterima" id="kuota_diterima">
                                         @error('kuota_diterima')
                                         <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                      @enderror
                                     </div>
                                 </div>
 

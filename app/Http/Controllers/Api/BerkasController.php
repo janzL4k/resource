@@ -10,13 +10,18 @@ class BerkasController extends Controller
 {
     public function index()
     {
-       $berkas = \App\Models\BerkasModel::all();
 
-     return response()->json([
-            'status' => true,
-            'message' => 'list data berkas',
-            'data' => $berkas
-        ], 200);
+            $berkas = BerkasModel::latest()->paginate(10);
+
+            return response()->json([
+
+                "response" => [
+                    "status" => 200,
+                    "message" => "List Data Berkas"
+                ],
+
+                "data" => $berkas
+            ], 200);
     }
 
 
@@ -24,13 +29,14 @@ class BerkasController extends Controller
     {
         $request->validate([
             "nama" => "required",
-            "nim" => "required",
+            "nim" => "required|numeric",
             "universitas" => "required",
             "prodi" => "required",
+            "semester" => "required|numeric",
             "alamat" => "required",
             "tgl_lahir" => "required|date",
             "tmp_lahir" => "required",
-            "jk" => "required",
+            "jk" => "required|in:Laki-Laki,Perempuan",
             "agama" => "required",
             "ayah" => "required",
             "pekerjaan_ayah" => "required",
@@ -124,8 +130,10 @@ class BerkasController extends Controller
         ]);
 
         return response()->json([
-            'status' => 'success',
-            'message' => 'data success created',
+            "response" => [
+                'status' => 'success',
+                'message' => 'data success created',
+            ],
             'data' => [
                 'berkas' => $berkas,
             ],
