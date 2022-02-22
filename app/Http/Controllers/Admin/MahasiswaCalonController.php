@@ -110,7 +110,7 @@ class MahasiswaCalonController extends Controller
     public function show($id)
     {
         $mahasiswa_calon = BerkasModel::find($id);
-        session()->flash("success", "Berhasil Dihapus");
+        // session()->flash("success", "Berhasil Dihapus");
        return view('admin.mahasiswa_calon.detail_calon', compact('mahasiswa_calon'));
     }
 
@@ -152,15 +152,20 @@ class MahasiswaCalonController extends Controller
     {
         $exportpdf= BerkasModel::find($id);
 
-        $pdf = app('dompdf.wrapper');
+        // $pdf = app('dompdf.wrapper');
 
 
-        $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
-        return $pdf->download('Berkas Mahasiswa');
+        // $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
+        // return $pdf->download('Berkas Mahasiswa.pdf');
+       return view('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
     }
 
     public function pdff(){
-        return view('admin.mahasiswa_calon.export-pdf');
+        // $pdf = app('dompdf.wrapper');
+
+        // $pdf->loadview('admin.mahasiswa_calon.export-pdf');
+        // return $pdf->download('Berkas Mahasiswa.pdf');
+        // return view('admin.mahasiswa_calon.export-pdf');
 
     }
 }

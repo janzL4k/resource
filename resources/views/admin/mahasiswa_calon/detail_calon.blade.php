@@ -25,7 +25,7 @@
                     @csrf
 
                     <button type="submit" class="btn btn-success btn-sm ml-1"
-                        onclick="return confirm('Apa Anda yakin ?');"><i class="fas fa-check-circle"></i> Set
+                        onclick="return confirm('Apa Anda yakin Loloskan ?');"><i class="fas fa-check-circle"></i> Set
                         Lolos</button>
                 </form>
 
@@ -139,7 +139,7 @@
                                 <label>Jumlah Saudara</label>
                                 <input type="text" class="form-control" name="jmlh_saudara" disabled
                                     value="{{ $mahasiswa_calon->jmlh_saudara }}"
-                                    placeholder="{{ $mahasiswa_calon->jmlh_saudara }}">
+                                    placeholder="{{ $mahasiswa_calon->saudara }}">
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                                 <div class="input-group">
                                     <input class="form-control" id="inputGroupFile02" name="foto"
                                         value="{{ $mahasiswa_calon->foto }}" disabled
-                                        placeholder="">{{ $mahasiswa_calon->foto }}
+                                        placeholder="">
                                     <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
                                         File </label>
                                 </div>

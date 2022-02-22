@@ -108,35 +108,34 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="title">Jenis Kelamin</label>
-                                        <select name="jk" id="jk" class="form-control @error('jk') is-invalid @enderror">
-                                            <option value="">Pilih</option>
-                                            <option value="Laki-Laki">Laki-Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
-                                        @error('jk')
-                                        <span class="text-danger">
-                                        {{ $message }}
-                                    </span>
-                                        @enderror
+                                        <label for="jk">Jenis Kelamin</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="jk" id="exampleRadios1" value="Laki-Laki" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                              Laki-Laki
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="jk" id="exampleRadios2" value="Perempuan">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                              Perempuan
+                                            </label>
+                                          </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Agama</label>
-                                        <select  class="form-control form-control-lg @error('agama')
-                                        is-invalid
-                                        @enderror" name="agama" id="agama">
-                                            <option> </option>
-                                            <option >Islam</option>
-                                            <option>Kristen</option>
-                                            <option>Hindu</option>
-                                            <option>Budha</option>
-                                            <option>Katolik</option>
-                                        </select>
-                                        @error('agama')
-                                        <span class="text-danger">
-                                        {{ $message }}
-                                        </span>
-                                        @enderror
+                                        <label for="jk">agama</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="agama" id="exampleRadios1" value="Islam" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                              islam
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="agama" id="exampleRadios2" value="Kristen">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                              kristen
+                                            </label>
+                                          </div>
                                     </div>
                                 </div>
                                 <div class="form-row">

@@ -46,8 +46,8 @@ Route::middleware('authorization.admin')->group(function () {
     Route::get('berkas.create', [BerkasbeasiswaController::class, 'create'])->name('berkas.create');
     Route::get('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
     Route::post('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
-    Route::post('berkas.show/{id}', [BerkasbeasiswaController::class, 'show'])->name('berkas.show');
-    Route::get('berkas.destroy/{id}', [BerkasbeasiswaController::class, 'destroy'])->name('berkas.destroy');
+    Route::get('berkas.show/{id}', [BerkasbeasiswaController::class, 'show'])->name('berkas.show');
+    Route::post('berkas.destroy/{id}', [BerkasbeasiswaController::class, 'destroy'])->name('berkas.destroy');
 
         // data mahasiswa_calon
     Route::get('mahasiswa_calon.index', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.index');

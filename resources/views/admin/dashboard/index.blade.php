@@ -82,7 +82,7 @@
                         <h4>Kampus Penerima</h4>
                     </div>
                     <div class="card-body">
-                        10
+                       {{$kampus}}
                     </div>
                 </div>
             </div>

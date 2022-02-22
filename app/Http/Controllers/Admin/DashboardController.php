@@ -6,6 +6,7 @@ use App\Models\Pengumuman;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Kampus;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,7 @@ class DashboardController extends Controller
         $berkas = BerkasModel::count();
         $pengumuman = Pengumuman::count();
         $diterima = BerkasModel::where('status', 'Lolos')->count();
-        return view('admin.dashboard.index', compact('berkas','pengumuman', 'diterima'));
+        $kampus = Kampus::count();
+        return view('admin.dashboard.index', compact('berkas','pengumuman', 'diterima', 'kampus'));
     }
 }

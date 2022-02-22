@@ -58,13 +58,13 @@
                                 <td>{{ $item->agama }}</td>
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
-                                        <a href="/berkas/edit" class="btn btn-sm btn-success ml-1"><i
-                                                class="fas fa-pencil-alt"></i></a>
+                                        {{-- <a href="/berkas/edit" class="btn btn-sm btn-success ml-1"><i
+                                                class="fas fa-pencil-alt"></i></a> --}}
                                         <a href="{{ route('berkas.show', $item->id) }}" class="btn btn-sm btn-primary ml-1"><i
                                                 class="fas fa-eye"></i></a>
                                         <form action="{{ route('berkas.destroy', $item->id) }}" method="post">
                                             @csrf
-                                            @method('DELETE')
+
                                             <button type="submit" class="btn btn-danger btn-sm ml-1"
                                                 onclick="return confirm('Apa Anda yakin ?');"><i
                                                     class="fas fa-trash"></i></button>
