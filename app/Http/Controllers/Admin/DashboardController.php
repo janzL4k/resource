@@ -7,6 +7,8 @@ use App\Models\BerkasModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Kampus;
+use App\Models\User;
+use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class DashboardController extends Controller
 {
@@ -14,7 +16,9 @@ class DashboardController extends Controller
         $berkas = BerkasModel::count();
         $pengumuman = Pengumuman::count();
         $diterima = BerkasModel::where('status', 'Lolos')->count();
+        $calon = BerkasModel::where('status', 'Tidak Lolos')->count();
         $kampus = Kampus::count();
-        return view('admin.dashboard.index', compact('berkas','pengumuman', 'diterima', 'kampus'));
+        $user = User::count();
+        return view('admin.dashboard.index', compact('berkas','pengumuman', 'diterima', 'kampus','calon', 'user'));
     }
 }

@@ -130,13 +130,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Kartu Hasil Studi</label>
+                                    <label>Form A1</label>
                                     <input type="text" class="form-control" disabled
                                         placeholder="{{ $detail_berkas->khs }}">
 
                                 </div>
                                 <div class="form-group">
-                                    <label>Surat Keterangan Beasiswa</label>
+                                    <label>Surat Rekomendasi Beasiswa</label>
                                     <input type="text" class="form-control" disabled
                                         placeholder="{{ $detail_berkas->suket_beasiswa }}">
 

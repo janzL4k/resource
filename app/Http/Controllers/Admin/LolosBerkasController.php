@@ -21,14 +21,14 @@ class LolosBerkasController extends Controller
     }
 
     public function update($id){
-        $mahasiswa_calon = BerkasModel::all();
+        $calons = BerkasModel::all();
         $no  =1;
         $siswa = BerkasModel::findOrFail($id);
         $siswa->status = 'Lolos';
         $siswa->save();
 
         session()->flash("success", "Calon mahasiswa berhasil diaktifkan.");
-        return view('admin.mahasiswa_calon.index', compact('mahasiswa_calon', 'no'));
+        return view('admin.mahasiswa_calon.index', compact('calons', 'no'));
      }
 
 

@@ -12,6 +12,8 @@
     <div class="card">
         <div class="card-header">
             <h4>Action</h4>
+
+
         </div>
         <div class="section-body">
             {{-- <form action="{{ route('mahasiswa_calon.store') }}" method="post" enctype="multipart/form-data"> --}}
@@ -28,6 +30,12 @@
                         onclick="return confirm('Apa Anda yakin Loloskan ?');"><i class="fas fa-check-circle"></i> Set
                         Lolos</button>
                 </form>
+                <div class="info float-right">
+                    <button class="btn btn-warning " disabled>  {{ $mahasiswa_calon->status}}</button>
+
+                </div>
+
+
 
             </div>
             <div class="row">
@@ -154,8 +162,7 @@
 
                                 <div class="input-group">
                                     <input class="form-control" id="inputGroupFile02" name="foto"
-                                        value="{{ $mahasiswa_calon->foto }}" disabled
-                                        placeholder="">
+                                        value="{{ $mahasiswa_calon->foto }}" disabled placeholder="">
                                     <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
                                         File </label>
                                 </div>
@@ -165,8 +172,8 @@
                                 <label>KTP</label>
                                 <div class="input-group">
                                     <input class="form-control" id="inputGroupFile02"
-                                        name="{{ $mahasiswa_calon->foto }}" value="{{ $mahasiswa_calon->ktp }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->ktp }}">
+                                        name="{{ $mahasiswa_calon->foto }}" value="{{ $mahasiswa_calon->ktp }}"
+                                        disabled placeholder="{{ $mahasiswa_calon->ktp }}">
                                     <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
                                         File </label>
                                 </div>
@@ -195,7 +202,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Kartu Hasil Studi</label>
+                                <label>Form A1</label>
                                 <div class="input-group">
                                     <input class="form-control" id="inputGroupFile02" name="khs"
                                         value="{{ $mahasiswa_calon->khs }}" disabled
@@ -205,7 +212,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Surat Keterangan Beasiswa & FORM A1</label>
+                                <label>Surat Rekomendasi Beasiswa</label>
                                 <div class="input-group">
                                     <input class="form-control" id="inputGroupFile02" name="suket_beasiswa"
                                         value="{{ $mahasiswa_calon->suket_beasiswa }}" disabled

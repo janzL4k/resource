@@ -206,7 +206,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <h6 class="text-primary">Berkas Pendaftar</h6>
-                                    <label>Foto</label>
+                                    <label>Foto (Bentuk Gambar)</label>
 
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('foto')
@@ -222,7 +222,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>KTP</label>
+                                    <label>KTP (Bentuk Gambar)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('ktp')
                                         is-invalid
@@ -237,7 +237,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Kartu Keluarga</label>
+                                    <label>Kartu Keluarga (Bentuk Gambar)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('kk')
                                         is-invalid
@@ -252,7 +252,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Transkip Nilai</label>
+                                    <label>Transkip Nilai (Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('transkip')
                                         is-invalid
@@ -267,7 +267,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Kartu Hasil Studi</label>
+                                    <label>Form A1 (Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('khs')
                                         is-invalid
@@ -281,7 +281,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Surat Keterangan Beasiswa & FORM A1</label>
+                                    <label>Surat Rekomendasi Beasiswa(Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('suket_beasiswa')
                                         is-invalid
@@ -295,7 +295,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>SKTM/Slip Gaji</label>
+                                    <label>SKTM/Slip Gaji (Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('sktm')
                                         is-invalid
@@ -309,7 +309,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Piagam Sertifikat</label>
+                                    <label>Piagam Sertifikat (Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('sertifikat')
                                         is-invalid
@@ -323,7 +323,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Motivation Later</label>
+                                    <label>Motivation Later (Bentuk Pdf)</label>
                                      <div class="input-group">
                                         <input type="file" class="form-control @error('motivation_later')
                                         is-invalid

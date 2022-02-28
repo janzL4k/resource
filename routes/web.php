@@ -48,6 +48,8 @@ Route::middleware('authorization.admin')->group(function () {
     Route::post('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
     Route::get('berkas.show/{id}', [BerkasbeasiswaController::class, 'show'])->name('berkas.show');
     Route::post('berkas.destroy/{id}', [BerkasbeasiswaController::class, 'destroy'])->name('berkas.destroy');
+    //Route search
+    Route::get('berkas.search', [BerkasbeasiswaController::class, 'index'])->name('berkas.search');
 
         // data mahasiswa_calon
     Route::get('mahasiswa_calon.index', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.index');
@@ -56,6 +58,9 @@ Route::middleware('authorization.admin')->group(function () {
     //export pdf
     Route::get('mahasiswa_calon.exportpdf/{id}', [MahasiswaCalonController::class, 'exportpdf'])->name('mahasiswa_calon.exportpdf');
     Route::get('mahasiswa_calon.pdff', [MahasiswaCalonController::class, 'pdff'])->name('mahasiswa_calon.pdff');
+ //Route search
+ Route::get('mahasiswa_calon.search', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.search');
+ Route::get('mahasiswa_calon.kampus', [MahasiswaCalonController::class, 'kampus'])->name('mahasiswa_calon.kampus');
 
     //controller Berkas lolos
     Route::get('set_lolos.index', [LolosBerkasController::class, 'index'])->name('set_lolos.index');
@@ -66,6 +71,8 @@ Route::middleware('authorization.admin')->group(function () {
     Route::get('mahasiswa_penerima.index', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.index');
     Route::get('mahasiswa_penerima.export', [MahasiswaLolosController::class, 'export'])->name('mahasiswa_penerima.export');
     Route::get('mahasiswa_penerima.export_pdf', [MahasiswaLolosController::class, 'export_pdf'])->name('mahasiswa_penerima.export_pdf');
+ //Route search
+ Route::get('mahasiswa_penerima.search', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.search');
 
         //data kampus penerima
     Route::get('data_kampus.index', [DatakampusController::class, 'index'])->name('data.kampus.index');
@@ -91,6 +98,8 @@ Route::middleware('authorization.admin')->group(function () {
     Route::put('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
     Route::post('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
     Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
+
 });
 });
 

@@ -11,9 +11,19 @@ class BerkasBeasiswaController extends Controller
     public function index()
     {
         $title="Dashboard GenBi";
-        $datas= BerkasModel::all();
-        $no=1;
-        return view("admin.berkas_beasiswa.index", compact('datas', 'no', 'title'));
+        $datas = BerkasModel::latest();
+        $jumlah_berkas=BerkasModel::count();
+        if(request('search')){
+            $datas->where('nama', 'like', "%" .request('search') . "%")
+            ->orWhere('universitas', 'like', "%" .request('search') . "%")
+            ->orWhere('nim', 'like', "%" .request('search') . "%");
+        }
+
+        return view("admin.berkas_beasiswa.index",[
+                "datas"=>$datas->get(),
+                "title"=>$title,
+                "jumlah_berkas"=>$jumlah_berkas
+            ]);
     }
 
 
@@ -154,4 +164,5 @@ class BerkasBeasiswaController extends Controller
         session()->flash("success", "Berhasil Dihapus");
         return redirect()->route('berkas.index');
     }
+
 }

@@ -12,10 +12,17 @@ use PDF;
 class MahasiswaLolosController extends Controller
 {
     public function index(){
-        $mahasiswa_penerima = BerkasModel::where('status', 'Lolos')->get();
-    //    return $mahasiswa_penerima;
-        // $mahasiswa = $mahasiswa_penerima->where('status', 'Lolos');
-        return view('admin.mahasiswa_penerima.index', compact('mahasiswa_penerima'));
+
+        $diterima = BerkasModel::latest();
+        $jumlah_penerima = BerkasModel::where('status', 'Lolos')->count();
+        if(request('search')){
+            $diterima->where('nama', 'like', "%" .request('search') . "%")
+            ->orWhere('universitas', 'like', "%" .request('search') . "%");
+        }
+        return view('admin.mahasiswa_penerima.index',[
+                "diterima"=>$diterima->where('status', 'Lolos')->get(),
+                "jumlah_penerima"=>$jumlah_penerima,
+            ]);
     }
 
 public function export(){

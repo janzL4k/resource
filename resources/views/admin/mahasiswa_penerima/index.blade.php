@@ -16,21 +16,11 @@
             <div class="card-header-action">
                 <a href="{{ route('mahasiswa_penerima.export') }}" class="btn btn-danger btn-icon icon-right">Export Pdf <i class="fas fa-print"></i></a>
               </div>
-            <div class="card-header-action p-4">
-                <div class="dropdown d-inline">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Urut berdasarkan
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item has-icon" href="#"><i class="far fa-clock"></i>Terbaru</a>
-                      <a class="dropdown-item has-icon" href="#"><i class="fas fa-building"></i>Kampus</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="card-header-action">
-                <form>
+
+              <div class="card-header-action">
+                <form class="form" method="get" action="{{ route('mahasiswa_penerima.search') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="search" placeholder="Search" id="search" value="{{ request('search') }}">
                         <div class="input-group-btn">
                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                         </div>
@@ -53,10 +43,10 @@
                             <th>Semester</th>
                             <th> Status</th>
                         </tr>
-                        <?php $no=1; ?>
-                        @foreach ($mahasiswa_penerima as $lolos)
+
+                        @foreach ($diterima as $lolos)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{  $loop->iteration}}</td>
                                 <td>{{ $lolos->nama }}</td>
                                 <td>{{ $lolos->nim }}</td>
                                 <td>{{ $lolos->universitas }}</td>
@@ -77,17 +67,13 @@
         <div class="card-body">
             <nav aria-label="...">
               <ul class="pagination">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                <li class="page-item disabled active">
+                  <a class="page-link" href="#" tabindex="-1">Jumlah data</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                <li class="page-item active disabled">
+                  <a class="page-link" href="#">{{ $jumlah_penerima }}<span class="sr-only"></span></a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
+
               </ul>
             </nav>
           </div>

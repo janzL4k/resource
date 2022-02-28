@@ -113,14 +113,14 @@
             </div>
             <div class="row">
                 <div class="card-body">
-                    <h5>5. Kartu Hasil Studi</h5>
+                    <h5>5.Form A1</h5>
                     <embed type="application/pdf" src="{{ asset('/data/pdf/' . $exportpdf->khs) }}" width="900"
                         height="800"></embed>
                 </div>
             </div>
             <div class="row">
                 <div class="card-body">
-                    <h5>6. Surat Keterangan Beasiswa & FORM A1</h5>
+                    <h5>6. Surat Keterangan Beasiswa</h5>
                     <object type="application/pdf" data="{{ asset('/data/foto/' . $exportpdf->suket_beasiswa) }}"
                         width="900" height="800">
                     </object>
@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="card-body">
                     <h5>9. Motivation Later</h5>
-                    <object type="application/pdf" data=" {{ asset('/data/pdf/' . $exportpdf->motivation_later) }}"
+                    <object type="application/pdf" data=" {{ asset('/data/foto/' . $exportpdf->motivation_later) }}"
                         width="900" height="800">
                 </div>
             </div>

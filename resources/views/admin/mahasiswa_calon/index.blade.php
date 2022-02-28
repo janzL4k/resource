@@ -14,10 +14,24 @@
         <div class="card-header">
             <h4>Daftar Calon </h4>
             <h4></h4>
+            {{-- <div class="card-header-action p-4">
+                <div class="dropdown d-inline">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Urut berdasarkan
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item has-icon" href="{{route('mahasiswa_calon.index') }}"><i class="far fa-clock"></i>Terbaru</a>
+                      <form class="form" method="get" action="{{route('mahasiswa_calon.kampus') }}">
+                             <a class="dropdown-item has-icon" href=""><i class="fas fa-building"></i>Kampus</a>
+
+                    </form>
+                        </div>
+                  </div>
+            </div> --}}
             <div class="card-header-action">
-                <form>
+                <form class="form" method="get" action="{{ route('mahasiswa_calon.search') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="search" placeholder="Search" id="search" value="{{ request('search') }}">
                         <div class="input-group-btn">
                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                         </div>
@@ -36,18 +50,20 @@
                             <th>Universitas</th>
                             <th>Prodi</th>
                             <th>Semester</th>
+                            <th>Status Mahasiswa</th>
 
                             <th> Action</th>
                         </tr>
-                        @foreach ($mahasiswa_calon as $calon)
+                        @foreach ($calons as $calon)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{  $loop->iteration }}</td>
                                 <td>{{ $calon->nama }}</td>
                                 <td>{{ $calon->nim }}</td>
                                 <td>{{ $calon->universitas }}</td>
                                 <td>{{ $calon->prodi }}</td>
 
                                 <td>{{ $calon->semester }}</td>
+                                <td>{{ $calon->status }}</td>
 
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
@@ -66,22 +82,20 @@
                 </table>
             </div>
         </div>
-        <div class="card-body float-right">
+
+        <div class="card-body">
             <nav aria-label="...">
               <ul class="pagination">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
+                <li class="page-item disabled active">
+                  <a class="page-link" href="#" tabindex="-1">Jumlah data</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                <li class="page-item active disabled">
+                  <a class="page-link" href="#">{{ $jumlah_calon }}<span class="sr-only"></span></a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
+
               </ul>
             </nav>
           </div>
+
     </div>
 @endsection

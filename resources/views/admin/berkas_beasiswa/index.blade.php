@@ -20,14 +20,20 @@
         <div class="card-header">
             <h4></h4>
             <div class="card-header-action">
-                <form>
+                <form class="form" method="get" action="{{ route('berkas.search') }}">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" name="search" placeholder="Search" id="search" value="{{ request('search') }}">
                         <div class="input-group-btn">
                             <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
                 </form>
+                <!-- Start kode untuk form pencarian -->
+                {{-- @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif --}}
             </div>
         </div>
         <div class="card-body p-0">
@@ -48,7 +54,7 @@
                         </tr>
                         @foreach ($datas as $item)
                             <tr>
-                                <td>{{ $no++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nim }}</td>
                                 <td>{{ $item->universitas }}</td>
@@ -60,8 +66,8 @@
                                     <div class="d-flex d-inline justify-content-center">
                                         {{-- <a href="/berkas/edit" class="btn btn-sm btn-success ml-1"><i
                                                 class="fas fa-pencil-alt"></i></a> --}}
-                                        <a href="{{ route('berkas.show', $item->id) }}" class="btn btn-sm btn-primary ml-1"><i
-                                                class="fas fa-eye"></i></a>
+                                        <a href="{{ route('berkas.show', $item->id) }}"
+                                            class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
                                         <form action="{{ route('berkas.destroy', $item->id) }}" method="post">
                                             @csrf
 
@@ -83,21 +89,20 @@
             </div>
         </div>
         <div class="card-body">
-            <nav aria-label="...">
-              <ul class="pagination">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+
+            <div class="card-body">
+                <nav aria-label="...">
+                  <ul class="pagination">
+                    <li class="page-item disabled active">
+                      <a class="page-link" href="#" tabindex="-1">Jumlah data</a>
+                    </li>
+                    <li class="page-item active disabled">
+                      <a class="page-link" href="#">{{ $jumlah_berkas}}<span class="sr-only"></span></a>
+                    </li>
+
+                  </ul>
+                </nav>
+              </div>
+        </div>
     </div>
 @endsection

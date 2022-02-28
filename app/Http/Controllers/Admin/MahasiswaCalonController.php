@@ -17,9 +17,21 @@ class MahasiswaCalonController extends Controller
      */
     public function index()
     {
-        $mahasiswa_calon = BerkasModel::all()->sortBy('id');
-        $no=1;
-        return view("admin.mahasiswa_calon.index", compact('mahasiswa_calon', 'no'));
+
+            $title="Dashboard GenBi";
+            $calons = BerkasModel::latest();
+            $jumlah_calon = BerkasModel::where('status', 'Tidak Lolos')->count();
+            if(request('search')){
+                $calons->where('nama', 'like', "%" .request('search') . "%")
+                ->orWhere('universitas', 'like', "%" .request('search') . "%")
+                ->orWhere('nim', 'like', "%" .request('search') . "%");
+            }
+
+            return view("admin.mahasiswa_calon.index",[
+                    "calons"=>$calons->where('status', 'Tidak Lolos')->get(),
+                    "title"=>$title,
+                    "jumlah_calon"=>$jumlah_calon
+                ]);
     }
 
     /**
@@ -40,31 +52,6 @@ class MahasiswaCalonController extends Controller
      */
     public function store(Request $request)
     {
-        // $foto = $request->file('foto');
-        // $namefoto = time() . "_" . $foto->getClientOriginalExtension();
-        // $path = 'data/foto';
-        // $foto->move($path, $namefoto);
-
-        // $ktp = $request->file('ktp');
-        // $namektp = time() . "_" . $ktp->getClientOriginalName();
-        // $path = 'data/foto';
-        // $ktp->move($path, $namektp);
-
-        // $kk = $request->file('kk');
-        // $namekk = time() . "_" . $kk->getClientOriginalName();
-        // $path = 'data/foto';
-        // $kk->move($path, $namekk);
-
-        // $sktm = $request->file('sktm');
-        // $namesktm = time() . "_" . $sktm->getClientOriginalName();
-        // $path = 'data/foto';
-        // $sktm->move($path, $namesktm);
-
-        // $kk = $request->file('kk');
-        // $size = $ktp->getSize();
-        // $namekk = time() . "_" . $ktp->getClientOriginalName();
-        // $path = 'images/ktp';
-        // $kk->move($path, $namekk);
 
         $berkas_lolos = Mahasiswa::create([
             'nama' => $request->value,
@@ -166,6 +153,22 @@ class MahasiswaCalonController extends Controller
         // $pdf->loadview('admin.mahasiswa_calon.export-pdf');
         // return $pdf->download('Berkas Mahasiswa.pdf');
         // return view('admin.mahasiswa_calon.export-pdf');
+
+    }
+    public function kampus(){
+
+        $title="Mahasiswa Calon";
+        // dd(request('kampus'));
+        // $calons = BerkasModel::where('status', 'Tidak Lolos' && 'universitas','');
+        $kampus = BerkasModel::orderBy('universitas','desc')->paginate(5);
+        // $calons=BerkasModel::where('status', 'Tidak Lolos')
+        // ->where('kampus'.request('kampus'))
+        // ->get();
+
+        return view("admin.mahasiswa_calon.index",[
+                "kampus"=>$kampus->where('status', 'Tidak Lolos'),
+                "title"=>$title
+            ]);
 
     }
 }

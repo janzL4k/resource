@@ -17,7 +17,7 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Berkas Masuk</h4>
+                        <h4>Berkas Masuk Pendaftar</h4>
                     </div>
                     <div class="card-body">
                         {{ $berkas }}
@@ -36,7 +36,7 @@
                         <h4>Total Calon</h4>
                     </div>
                     <div class="card-body">
-                        {{ $berkas }}
+                        {{ $calon }}
                     </div>
                 </div>
             </div>
@@ -95,10 +95,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total User</h4>
+                        <h4>Total User Admin</h4>
                     </div>
                     <div class="card-body">
-                        10
+                       {{$user}}
                     </div>
                 </div>
             </div>
