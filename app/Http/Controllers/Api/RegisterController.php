@@ -18,27 +18,36 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        //set validation
         $validator = Validator::make($request->all(), [
             'name'      => 'required',
             'email'     => 'required|email|unique:users',
-            'password'  => 'required|min:8|confirmed'
+            'password'  => 'required|min:5'
         ]);
 
+        //if validation fails
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json($validator->errors(), 422);
         }
 
+        //create user
         $user = User::create([
             'name'      => $request->name,
             'email'     => $request->email,
-            'tipe'      => 'mahasiswa',
-            'password'  => Hash::make($request->password)
+            'password'  => bcrypt($request->password)
         ]);
 
+        //return response JSON user is created
+        if($user) {
+            return response()->json([
+                'success' => true,
+                'user'    => $user,
+            ], 201);
+        }
+
+        //return JSON process insert failed
         return response()->json([
-            'success' => true,
-            'message' => 'Register Success!',
-            'data'    => $user
-        ]);
+            'success' => false,
+        ], 409);
     }
 }
