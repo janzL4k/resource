@@ -14,6 +14,8 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/modules/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/select2-bootstrap4.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.4.0/css/autoFill.dataTables.min.css"/>--}}
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -41,38 +43,47 @@
             @include('layouts.footer')
         </div>
 <script>
-        //active select2
-        $(document).ready(function () {
-            $('select').select2({
-                theme: 'bootstrap4',
-                width: 'style',
+            //active select2
+            $(document).ready(function () {
+                $('select').select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+                });
             });
-        });
-
+            $(document).ready(function () {
+                $('#table-1').DataTable();
+            });
+</script>
         //flash message
-        @if(session()->has('success'))
-        swal({
-            type: "success",
-            icon: "success",
-            title: "BERHASIL!",
-            text: "{{ session('success') }}",
-            timer: 1500,
-            showConfirmButton: false,
-            showCancelButton: false,
-            buttons: false,
-        });
-        @elseif(session()->has('error'))
-        swal({
-            type: "error",
-            icon: "error",
-            title: "GAGAL!",
-            text: "{{ session('error') }}",
-            timer: 1500,
-            showConfirmButton: false,
-            showCancelButton: false,
-            buttons: false,
-        });
+
+        @if (session()->has('success'))
+            <script>
+                swal({
+                    type: "success",
+                    icon: "success",
+                    title: "BERHASIL!",
+                    text: "{{ session('success') }}",
+                    timer: 1500,
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                    buttons: false,
+                });
+            </script>
         @endif
+        @if (session()->has('error'))
+            <script>
+                swal({
+                    type: "error",
+                    icon: "error",
+                    title: "GAGAL!",
+                    text: "{{ session('error') }}",
+                    timer: 1500,
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                    buttons: false,
+                });
+            </script>
+            @endif
     </script>
 
 
@@ -82,6 +93,9 @@
     <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
+{{--    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>--}}
+{{--    <script type="text/javascript" src="https://cdn.datatables.net/autofill/2.4.0/js/dataTables.autoFill.min.js"></script>--}}
 
      <!-- Template JS File -->
      <script src="{{ asset('assets/js/scripts.js') }}"></script>

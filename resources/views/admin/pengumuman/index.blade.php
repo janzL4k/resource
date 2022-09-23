@@ -17,61 +17,45 @@
                     </i></a>
             </div>
         </div>
-        <div class="card-header">
-            <h4> </h4>
-            <div class="card-header-action p-4">
-
-            </div>
-            <div class="card-header-action">
-                <form>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="card-body p-0">
-            <div class="table-responsive table-invoice">
-                <table class="table table-striped">
-                    <tbody>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="table-1">
+                    <thead>
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Judul Pengumuman</th>
                             <th class="text-center">Deskripsi Pengumuman</th>
                             <th class="text-center">Action</th>
                         </tr>
-                        @foreach ($pengumuman as $umum)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $umum->judul }}</td>
-                                <td class="text-center">{{ $umum->deskripsi }}</td>
-                                <td class="text-center">
-                                    <div class="d-flex d-inline justify-content-center">
-                                        <a href="{{ route('pengumuman.edit', $umum->id) }}"
-                                            class="btn btn-sm btn-success ml-1"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="{{ route('pengumuman.show', $umum->id) }}"
-                                            class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
-                                        <form action="{{ route('pengumuman.destroy', $umum->id) }}" method="get">
-                                            @csrf
+                    </thead>
+                    <tbody>
+                    @foreach ($pengumuman as $umum)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $umum->judul }}</td>
+                            <td class="text-center">{{ $umum->deskripsi }}</td>
+                            <td class="text-center">
+                                <div class="d-flex d-inline justify-content-center">
+                                    <a href="{{ route('pengumuman.edit', $umum->id) }}"
+                                       class="btn btn-sm btn-success ml-1"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ route('pengumuman.show', $umum->id) }}"
+                                       class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
+                                    <form action="{{ route('pengumuman.destroy', $umum->id) }}" method="get">
+                                        @csrf
 
-                                            <button type="submit" class="btn btn-danger btn-sm ml-1"
+                                        <button type="submit" class="btn btn-danger btn-sm ml-1"
                                                 onclick="return confirm('Apa Anda yakin ?');"><i
-                                                    class="fas fa-trash"></i></button>
-                                        </form>
+                                                class="fas fa-trash"></i></button>
+                                    </form>
 
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
+                    @endforeach
                 </table>
             </div>
         </div>
-      
+
     </div>
 @endsection
