@@ -26,7 +26,6 @@ class BerkasBeasiswaController extends Controller
             ]);
     }
 
-
     public function create()
     {
        return view('admin.berkas_beasiswa.tambah');
@@ -124,7 +123,6 @@ class BerkasBeasiswaController extends Controller
             'ibu' => $request->ibu,
             'pekerjaan_ibu' => $request->pekerjaan_ayah,
             'saudara' => $request->saudara,
-
             'foto' => $namefoto,
             'ktp' => $namektp,
             'kk' => $namekk,
@@ -137,7 +135,6 @@ class BerkasBeasiswaController extends Controller
             'status'=>'Tidak Lolos'
         ]);
 
-
         session()->flash("success", "Berkas Berhasil Ditambah");
         return redirect()->route('berkas.index');
 
@@ -149,7 +146,6 @@ class BerkasBeasiswaController extends Controller
 
         return view('admin.berkas_beasiswa.detail', compact('detail_berkas'));
     }
-
 
     public function edit($id)
     {

@@ -42,7 +42,7 @@ Route::middleware('authorization.admin')->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.main.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
-    Route::get('berkas.index', [BerkasbeasiswaController::class, 'index'])->name('berkas.index');
+    Route::get('berkas.index', [BerkasBeasiswaController::class, 'index'])->name('berkas.index');
     Route::get('berkas.create', [BerkasbeasiswaController::class, 'create'])->name('berkas.create');
     Route::get('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
     Route::post('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');

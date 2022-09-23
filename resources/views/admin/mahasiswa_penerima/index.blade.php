@@ -16,24 +16,11 @@
             <div class="card-header-action">
                 <a href="{{ route('mahasiswa_penerima.export') }}" class="btn btn-danger btn-icon icon-right">Export Pdf <i class="fas fa-print"></i></a>
               </div>
-
-              <div class="card-header-action">
-                <form class="form" method="get" action="{{ route('mahasiswa_penerima.search') }}">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Search" id="search" value="{{ request('search') }}">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
         </div>
-
-        <div class="card-body p-0">
-            <div class="table-responsive table-invoice">
-                <table class="table table-striped">
-                    <tbody>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="table-1">
+                    <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
@@ -43,7 +30,8 @@
                             <th>Semester</th>
                             <th> Status</th>
                         </tr>
-
+                    </thead>
+                    <tbody>
                         @foreach ($diterima as $lolos)
                             <tr>
                                 <td>{{  $loop->iteration}}</td>
@@ -53,29 +41,11 @@
                                 <td>{{ $lolos->prodi }}</td>
                                 <td>{{ $lolos->semester }}</td>
                                 <td> <div class="btn btn-success">{{ $lolos->status }}</div></td>
-
-
-
                             </tr>
                         @endforeach
-
-
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card-body">
-            <nav aria-label="...">
-              <ul class="pagination">
-                <li class="page-item disabled active">
-                  <a class="page-link" href="#" tabindex="-1">Jumlah data</a>
-                </li>
-                <li class="page-item active disabled">
-                  <a class="page-link" href="#">{{ $jumlah_penerima }}<span class="sr-only"></span></a>
-                </li>
-
-              </ul>
-            </nav>
-          </div>
     </div>
 @endsection
