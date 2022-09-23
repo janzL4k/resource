@@ -147,11 +147,6 @@ class BerkasBeasiswaController extends Controller
         return view('admin.berkas_beasiswa.detail', compact('detail_berkas'));
     }
 
-    public function edit($id)
-    {
-    //
-    }
-
     public function destroy($id)
     {
         $delete = BerkasModel::findOrFail($id);
