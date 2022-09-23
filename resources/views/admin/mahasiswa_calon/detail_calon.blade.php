@@ -8,36 +8,24 @@
             <div class="breadcrumb-item"><a href="#">Detail</a></div>
         </div>
     </div>
-
     <div class="card">
         <div class="card-header">
-            <h4>Action</h4>
-
-
-        </div>
-        <div class="section-body">
-            {{-- <form action="{{ route('mahasiswa_calon.store') }}" method="post" enctype="multipart/form-data"> --}}
-            {{-- @method('PUT') --}}
-            {{-- @csrf --}}
-            <div class="card-header">
-                <h1> </h1>
+            <h4>Validasi Penerima </h4>
+            <div class="card-header-action d-flex">
                 <a href="{{ route('mahasiswa_calon.index') }}" class="btn btn-primary"><i
                         class="fas fa-arraow-back">Kembali</i></a>
                 <form action="{{ route('set_lolos.update', $mahasiswa_calon->id) }}" method="post">
                     @csrf
-
-                    <button type="submit" class="btn btn-success btn-sm ml-1"
-                        onclick="return confirm('Apa Anda yakin Loloskan ?');"><i class="fas fa-check-circle"></i> Set
+                    <button type="submit" class="btn btn-success btn-sm ml-1 "
+                            onclick="return confirm('Apa Anda yakin Loloskan ?');"><i class="fas fa-check-circle"></i> Set
                         Lolos</button>
                 </form>
-                <div class="info float-right">
-                    <button class="btn btn-warning " disabled>  {{ $mahasiswa_calon->status}}</button>
-
+                <div class="info float-right ml-1">
+                    <button class="btn btn-danger " disabled>  {{ $mahasiswa_calon->status}}</button>
                 </div>
-
-
-
             </div>
+        </div>
+        <div class="section-body">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="card">

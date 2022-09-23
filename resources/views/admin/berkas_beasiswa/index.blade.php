@@ -17,29 +17,10 @@
                     </i></a>
             </div>
         </div>
-        <div class="card-header">
-            <h4></h4>
-            <div class="card-header-action">
-                <form class="form" method="get" action="{{ route('berkas.search') }}">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="search" placeholder="Search" id="search" value="{{ request('search') }}">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-                <!-- Start kode untuk form pencarian -->
-                {{-- @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif --}}
-            </div>
-        </div>
-        <div class="card-body p-0">
-            <div class="table-responsive table-invoice">
-                <table class="table table-striped">
-                    <tbody>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="table-1">
+                    <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
@@ -52,6 +33,8 @@
                             <th> Action</th>
 
                         </tr>
+                    </thead>
+                    <tbody>
                         @foreach ($datas as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -78,31 +61,11 @@
 
                                     </div>
                                 </td>
-
                             </tr>
                         @endforeach
-
-
                     </tbody>
-
                 </table>
             </div>
-        </div>
-        <div class="card-body">
-
-            <div class="card-body">
-                <nav aria-label="...">
-                  <ul class="pagination">
-                    <li class="page-item disabled active">
-                      <a class="page-link" href="#" tabindex="-1">Jumlah data</a>
-                    </li>
-                    <li class="page-item active disabled">
-                      <a class="page-link" href="#">{{ $jumlah_berkas}}<span class="sr-only"></span></a>
-                    </li>
-
-                  </ul>
-                </nav>
-              </div>
         </div>
     </div>
 @endsection
