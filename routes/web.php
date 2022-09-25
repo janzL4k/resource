@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DatakampusController;
 use App\Http\Controllers\Admin\PengumumanController;
 use App\Http\Controllers\Admin\LolosBerkasController;
-use App\Http\Controllers\Admin\BerkasbeasiswaController;
 use App\Http\Controllers\Admin\MahasiswaCalonController;
 use App\Http\Controllers\Admin\MahasiswaLolosController;
 
@@ -42,14 +41,12 @@ Route::middleware('authorization.admin')->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.main.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
-    Route::get('berkas.index', [BerkasBeasiswaController::class, 'index'])->name('berkas.index');
-    Route::get('berkas.create', [BerkasbeasiswaController::class, 'create'])->name('berkas.create');
-    Route::get('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
-    Route::post('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
-    Route::get('berkas.show/{id}', [BerkasbeasiswaController::class, 'show'])->name('berkas.show');
-    Route::post('berkas.destroy/{id}', [BerkasbeasiswaController::class, 'destroy'])->name('berkas.destroy');
-    //Route search
-    Route::get('berkas.search', [BerkasbeasiswaController::class, 'index'])->name('berkas.search');
+    Route::get('berkas.index',[App\Http\Controllers\Admin\BerkasBeasiswaController::class, 'index'])->name('berkas.index');
+    Route::get('berkas.create', [App\Http\Controllers\Admin\BerkasBeasiswaController::class, 'create'])->name('berkas.create');
+//    Route::get('berkas.store', [BerkasbeasiswaController::class, 'store'])->name('berkas.store');
+    Route::post('berkas.store', [App\Http\Controllers\Admin\BerkasBeasiswaController::class, 'store'])->name('berkas.store');
+    Route::get('berkas.show/{id}', [App\Http\Controllers\Admin\BerkasBeasiswaController::class, 'show'])->name('berkas.show');
+    Route::post('berkas.destroy/{id}', [App\Http\Controllers\Admin\BerkasBeasiswaController::class, 'destroy'])->name('berkas.destroy');
 
         // data mahasiswa_calon
     Route::get('mahasiswa_calon.index', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.index');
