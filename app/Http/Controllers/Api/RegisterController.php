@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Mahasiswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -37,6 +38,11 @@ class RegisterController extends Controller
             'password'  => bcrypt($request->password)
         ]);
 
+        Mahasiswa::create([
+            'tipe' => 'mahasiswa',
+            'nama_lengkap' => $user->name,
+            'user_id' => $user->id,
+        ]);
         //return response JSON user is created
         if($user) {
             return response()->json([
