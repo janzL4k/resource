@@ -9,7 +9,6 @@
         </div>
     </div>
 
-
     <div class="card">
         <div class="card-header">
             <h4>Tambah Data </h4>
@@ -31,7 +30,7 @@
                                     <label for="nama">Nama Lengkap</label>
                                     <input type="text" class="form-control @error('nama')
                                     is-invalid
-                                    @enderror " id="nama" name="nama" >
+                                    @enderror " id="nama" name="nama" required >
                                     @error('nama')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -41,7 +40,7 @@
                                         <label>Nim</label>
                                         <input type="text" class="form-control @error('nim')
                                         is-invalid
-                                        @enderror" name="nim" id="nim">
+                                        @enderror" name="nim" id="nim" required>
                                         @error('nim')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -50,7 +49,7 @@
                                         <label>Universitas</label>
                                         <input type="text" class="form-control @error('universitas')
                                         is-invalid
-                                        @enderror" name="universitas" id="universitas">
+                                        @enderror" name="universitas" id="universitas" required>
                                         @error('universitas')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -61,7 +60,7 @@
                                         <label>Prodi</label>
                                         <input type="text" class="form-control @error('prodi')
                                         is-invalid
-                                        @enderror" name="prodi" id="prodi">
+                                        @enderror" name="prodi" id="prodi" required>
                                         @error('prodi')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -70,7 +69,7 @@
                                         <label>Semester</label>
                                         <input type="number" class="form-control @error('semester')
                                         is-invalid
-                                        @enderror" name="semester" id="semester">
+                                        @enderror" name="semester" id="semester" required>
                                         @error('semester')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -80,7 +79,7 @@
                                         <label class=" text-md-right text-left">Alamat</label>
                                         <textarea name="alamat" id="alamat" class="form-control @error('alamat')
                                         is-invalid
-                                        @enderror" ></textarea>
+                                        @enderror" required></textarea>
                                         @error('alamat')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -91,7 +90,7 @@
                                         <input type="date" class="form-control datemask @error('tgl_lahir')
                                         is-invalid
                                         @enderror" placeholder="YYYY/MM/DD"
-                                            name="tgl_lahir" id="tgl_lahir">
+                                            name="tgl_lahir" id="tgl_lahir" required>
                                             @error('tgl_lahir')
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -100,7 +99,7 @@
                                         <label>Tempat Lahir</label>
                                         <input type="text" class="form-control @error('tmp_lahir')
                                         is-invalid
-                                        @enderror" name="tmp_lahir">
+                                        @enderror" name="tmp_lahir" required>
                                         @error('tmp_lahir')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -108,34 +107,61 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="jk">Jenis Kelamin</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jk" id="exampleRadios1" value="Laki-Laki" checked>
-                                            <label class="form-check-label" for="exampleRadios1">
-                                              Laki-Laki
-                                            </label>
-                                          </div>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="jk" id="exampleRadios2" value="Perempuan">
-                                            <label class="form-check-label" for="exampleRadios2">
-                                              Perempuan
-                                            </label>
-                                          </div>
+                                        <label for="jenis_kelamin">* Jenis Kelamin</label>
+                                        <select name="jenis_kelamin" id="jenis_kelamin"
+                                                class="form-control @error('jenis_kelamin') is-invalid @enderror" required>
+                                            <option {{ old('jenis_kelamin') == '' ? 'selected' : '' }} disabled value="">
+                                                --Pilih--
+                                            </option>
+                                            <option
+                                                {{ old('jenis_kelamin') == 'Laki-Laki' ? 'selected' : '' }} value="Laki-Laki">
+                                                Laki-Laki
+                                            </option>
+                                            <option
+                                                {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }} value="Perempuan">
+                                                Perempuan
+                                            </option>
+                                        </select>
+                                        @error('jenis_kelamin')
+                                        <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="jk">agama</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="agama" id="exampleRadios1" value="Islam" checked>
-                                            <label class="form-check-label" for="exampleRadios1">
-                                              islam
-                                            </label>
-                                          </div>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="agama" id="exampleRadios2" value="Kristen">
-                                            <label class="form-check-label" for="exampleRadios2">
-                                              kristen
-                                            </label>
-                                          </div>
+                                        <label for="agama">* Agama</label>
+                                        <select name="agama" id="agama"
+                                                class="form-control @error('agama') is-invalid @enderror" required>
+                                            <option {{ old('agama') == '' ? 'selected' : '' }} disabled value="">
+                                                --Pilih--
+                                            </option>
+                                            <option {{ old('agama') == 'Islam' ? 'selected' : '' }} value="Islam">
+                                                Islam
+                                            </option>
+                                            <option
+                                                {{ old('agama') == 'Kristen' ? 'selected' : '' }} value="Kristen">
+                                                Kristen
+                                            </option>
+                                            <option
+                                                {{ old('agama') == 'Katolik' ? 'selected' : '' }} value="Katolik">
+                                                Katolik
+                                            </option>
+                                            <option {{ old('agama') == 'Hindu' ? 'selected' : '' }} value="Hindu">
+                                                Hindu
+                                            </option>
+                                            <option {{ old('agama') == 'Buddha' ? 'selected' : '' }} value="Buddha">
+                                                Buddha
+                                            </option>
+                                            <option
+                                                {{ old('agama') == 'Konghucu' ? 'selected' : '' }} value="Konghucu">
+                                                Konghucu
+                                            </option>
+                                        </select>
+                                        @error('agama')
+                                        <span class="invalid-feedback" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -167,7 +193,7 @@
                                         <label>Nama Ibu</label>
                                         <input type="text" class="form-control @error('ibu')
                                         is-invalid
-                                        @enderror" name="ibu" id="ibu">
+                                        @enderror" name="ibu" id="ibu" required>
                                         @error('ibu')
                                         <span class="text-danger">
                                         {{ $message }}
@@ -178,7 +204,7 @@
                                         <label>Pekerjaan Ibu</label>
                                         <input type="text" class="form-control @error('pekerjaan_ibu')
                                         is-invalid
-                                        @enderror" name="pekerjaan_ibu" id="pekerjaan_ibu">
+                                        @enderror" name="pekerjaan_ibu" id="pekerjaan_ibu" required>
                                         @error('pekerjaan_ibu')
                                         <span class="text-danger">
                                         {{ $message }}
@@ -211,7 +237,7 @@
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('foto')
                                         is-invalid
-                                        @enderror" id="foto" name="foto">
+                                        @enderror" id="foto" name="foto" required>
                                         <label class="input-group-text bg-primary text-white" for="foto">Pilih File </label>
                                         @error('foto')
                                         <span class="text-danger">
@@ -220,7 +246,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>KTP (Bentuk Gambar)</label>
                                     <div class="input-group">
@@ -235,7 +260,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Kartu Keluarga (Bentuk Gambar)</label>
                                     <div class="input-group">
@@ -250,7 +274,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Transkip Nilai (Bentuk Pdf)</label>
                                     <div class="input-group">
@@ -265,7 +288,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Form A1 (Bentuk Pdf)</label>
                                     <div class="input-group">
@@ -284,8 +306,7 @@
                                     <label>Surat Rekomendasi Beasiswa(Bentuk Pdf)</label>
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('suket_beasiswa')
-                                        is-invalid
-                                        @enderror" id="suket_beasiswa" name="suket_beasiswa">
+                                        is-invalid @enderror" id="suket_beasiswa" name="suket_beasiswa">
                                         <label class="input-group-text bg-primary text-white" for="suket_beasiswa">Pilih File </label>
                                         @error('suket_beasiswa')
                                         <span class="text-danger">
@@ -313,7 +334,7 @@
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('sertifikat')
                                         is-invalid
-                                        @enderror" name="sertifikat" id="sertifikat">
+                                        @enderror" name="sertifikat" id="sertifikat" required>
                                         <label class="input-group-text bg-primary text-white" for="sertifikat">Pilih File </label>
                                         @error('sertifikat')
                                         <span class="text-danger">
@@ -327,7 +348,7 @@
                                      <div class="input-group">
                                         <input type="file" class="form-control @error('motivation_later')
                                         is-invalid
-                                        @enderror" name="motivation_later" id="motivation_later">
+                                        @enderror" name="motivation_later" id="motivation_later" required>
                                         <label class="input-group-text bg-primary text-white" for="motivation_later">Pilih File </label>
                                         @error('motivation_later')
                                         <span class="text-danger">
@@ -337,14 +358,15 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
                         </div>
                     </div>
-                    <div class=" form-group card-footer">
-                        <button class="btn btn-primary mr-1 " type="submit">Simpan</button>
+
+                    <div class="form-group card-footer">
+                        <button class="btn btn-primary mr-1" type="submit">Simpan</button>
                         <button class="btn btn-secondary" type="reset">Reset</button>
                     </div>
-            </form>
+                </form>
         </div>
     </div>
     </div>
