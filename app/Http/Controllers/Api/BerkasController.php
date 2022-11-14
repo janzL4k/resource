@@ -49,7 +49,7 @@ class BerkasController extends Controller
             "transkip"=> "required|mimes:pdf|max:10000",
             "khs" => "required|mimes:pdf|max:10000",
             "suket_beasiswa"=> "required|image|mimes:jpeg,png,jpg|max:5048",
-            "sktm"=> "required|mimes:pdf|max:10000",
+            "sktm"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sertifikat"=> "required|mimes:pdf|max:10000",
             "motivation_later" => "required|mimes:pdf|max:10000",
 
@@ -74,6 +74,11 @@ class BerkasController extends Controller
         $namesktm = time() . "_" . $sktm->getClientOriginalName();
         $path = 'data/foto';
         $sktm->move($path, $namesktm);
+        
+        $suket_beasiswa = $request->file('suket_beasiswa');
+        $namesuket_beasiswa = time() . "_" . $suket_beasiswa->getClientOriginalName();
+        $path = 'data/foto';
+        $suket_beasiswa->move($path, $namesuket_beasiswa);
 
         //file pdf
         $transkip = $request->file('transkip');
@@ -85,11 +90,6 @@ class BerkasController extends Controller
         $namekhs = time() . "_" . $khs->getClientOriginalName();
         $path = 'data/pdf';
         $khs->move($path, $namekhs);
-
-        $suket_beasiswa = $request->file('suket_beasiswa');
-        $namesuket_beasiswa = time() . "_" . $suket_beasiswa->getClientOriginalName();
-        $path = 'data/pdf';
-        $suket_beasiswa->move($path, $namesuket_beasiswa);
 
         $sertifikat = $request->file('sertifikat');
         $namesertifikat = time() . "_" . $sertifikat->getClientOriginalName();
