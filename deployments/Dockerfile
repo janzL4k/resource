@@ -30,5 +30,7 @@ RUN mkdir -p /home/genbi/.composer && \
  
 # Set working directory
 WORKDIR /var/www
+
+COPY . /var/www/
  
 USER genbi
