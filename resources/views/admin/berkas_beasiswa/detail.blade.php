@@ -28,73 +28,78 @@
                                     <h6 class="text-primary">Data Diri</h6>
                                     <label>Nama Lengkap</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->nama }}">
+                                           placeholder="{{ $detail_berkas->nama }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Nim</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->nim }}">
+                                           placeholder="{{ $detail_berkas->nim }}">
                                 </div>
                                 <div class="form-group">
                                     <label class=" text-md-right text-left">Address</label>
                                     <div class="">
                                         <textarea class="form-control" name="address" disabled
-                                            placeholder="{{ $detail_berkas->alamat }}"></textarea>
+                                                  placeholder="{{ $detail_berkas->alamat }}"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Tanggal Lahir</label>
-                                        <input type="date" class="form-control datemask" disabled value="{{ $detail_berkas->tgl_lahir}}" placeholder="{{ $detail_berkas->tgl_lahir }}"
-                                            name="tgl_lahir">
+                                        <input type="date" class="form-control datemask" disabled
+                                               value="{{ $detail_berkas->tgl_lahir}}"
+                                               placeholder="{{ $detail_berkas->tgl_lahir }}"
+                                               name="tgl_lahir">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Tempat Lahir</label>
-                                        <input type="text" class="form-control" name="tmp_lahir" disabled value="{{ $detail_berkas->tmp_lahir}}" placeholder="{{ $detail_berkas->tmp_lahir }}">
+                                        <input type="text" class="form-control" name="tmp_lahir" disabled
+                                               value="{{ $detail_berkas->tmp_lahir}}"
+                                               placeholder="{{ $detail_berkas->tmp_lahir }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Jenis Kelamin</label>
-                                        <select class="form-control form-control-lg" name="jk" disabled
-                                            value="{{ $detail_berkas->jk }}">
-                                            <option>{{ $detail_berkas->jk }} </option>
-
-                                        </select>
+                                        <input type="text" class="form-control" disabled
+                                               value="{{ $detail_berkas->jenis_kelamin }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Agama</label>
-                                        <select class="form-control form-control-lg" name="agama" disabled
-                                            value="{{ $detail_berkas->agama }}">
-                                            <option>{{ $detail_berkas->agama }} </option>
-
-                                        </select>
+                                        <input type="text" class="form-control" disabled
+                                               value="{{ $detail_berkas->agama }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Nama Ayah</label>
-                                        <input type="text" class="form-control" name="ayah" disabled value="{{ $detail_berkas->ayah}}" placeholder="{{ $detail_berkas->ayah }}">
+                                        <input type="text" class="form-control" name="ayah" disabled
+                                               value="{{ $detail_berkas->ayah}}"
+                                               placeholder="{{ $detail_berkas->ayah }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Pekerjaan Ayah</label>
-                                        <input type="text" class="form-control" name="pekerjaan_ayah" disabled value="{{ $detail_berkas->pekerjaan_ayah}}" placeholder="{{ $detail_berkas->pekerjaan_ayah }}">
+                                        <input type="text" class="form-control" name="pekerjaan_ayah" disabled
+                                               value="{{ $detail_berkas->pekerjaan_ayah}}"
+                                               placeholder="{{ $detail_berkas->pekerjaan_ayah }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>Nama Ibu</label>
-                                        <input type="text" class="form-control" name="ibu" disabled value="{{ $detail_berkas->ibu}}" placeholder="{{ $detail_berkas->ibu }}">
+                                        <input type="text" class="form-control" name="ibu" disabled
+                                               value="{{ $detail_berkas->ibu}}" placeholder="{{ $detail_berkas->ibu }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Pekerjaan Ibu</label>
-                                        <input type="text" class="form-control" name="pekerjaan_ibu" disabled value="{{ $detail_berkas->pekerjaan_ibu}}" placeholder="{{ $detail_berkas->pekerjaan_ibu }}">
+                                        <input type="text" class="form-control" name="pekerjaan_ibu" disabled
+                                               value="{{ $detail_berkas->pekerjaan_ibu}}"
+                                               placeholder="{{ $detail_berkas->pekerjaan_ibu }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Jumlah Saudara</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->saudara }}">
+                                           placeholder="{{ $detail_berkas->saudara }}">
                                 </div>
                             </div>
                         </div>
@@ -107,56 +112,56 @@
                                     <h6 class="text-primary">Berkas Pendaftar</h6>
                                     <label>Foto</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->foto }}">
+                                           placeholder="{{ $detail_berkas->foto }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>KTP</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->ktp }}">
+                                           placeholder="{{ $detail_berkas->ktp }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Kartu Keluarga</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->kk }}">
+                                           placeholder="{{ $detail_berkas->kk }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Transkip Nilai</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->transkip }}">
+                                           placeholder="{{ $detail_berkas->transkip }}">
 
                                 </div>
 
                                 <div class="form-group">
                                     <label>Form A1</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->khs }}">
+                                           placeholder="{{ $detail_berkas->khs }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label>Surat Rekomendasi Beasiswa</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->suket_beasiswa }}">
+                                           placeholder="{{ $detail_berkas->suket_beasiswa }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label>SKTM/Slip Gaji</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->sktm }}">
+                                           placeholder="{{ $detail_berkas->sktm }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label>Piagam Sertifikat</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->sertifikat }}">
+                                           placeholder="{{ $detail_berkas->sertifikat }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label>Motivation Later</label>
                                     <input type="text" class="form-control" disabled
-                                        placeholder="{{ $detail_berkas->motivation_later }}">
+                                           placeholder="{{ $detail_berkas->motivation_later }}">
 
                                 </div>
                             </div>

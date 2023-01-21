@@ -6,55 +6,81 @@ use PDF;
 use App\Models\Mahasiswa;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
 class MahasiswaCalonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-
             $title="Dashboard GenBi";
-            $calons = BerkasModel::latest();
-            $jumlah_calon = BerkasModel::where('status', 'Tidak Lolos')->count();
-            if(request('search')){
-                $calons->where('nama', 'like', "%" .request('search') . "%")
-                ->orWhere('universitas', 'like', "%" .request('search') . "%")
-                ->orWhere('nim', 'like', "%" .request('search') . "%");
-            }
+            $listCalon = BerkasModel::where('status', 'Di Review')->get();
 
-            return view("admin.mahasiswa_calon.index",[
-                    "calons"=>$calons->where('status', 'Tidak Lolos')->get(),
-                    "title"=>$title,
-                    "jumlah_calon"=>$jumlah_calon
+            $data = Collection::empty();
+            $data->put('title',$title);
+            $data->put('listCalon',$listCalon);
+
+            return view("admin.mahasiswa_calon.index",
+                [
+                    "data"=>$data,
                 ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view("admin.mahasiswa_calon.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+        $foto = $request->file('foto');
+        $namefoto = time() . "_" . $foto->getClientOriginalName();
+        $path = 'data/foto';
+        $foto->move($path, $namefoto);
 
-        $berkas_lolos = Mahasiswa::create([
-            'nama' => $request->value,
+        $ktp = $request->file('ktp');
+        $namektp = time() . "_" . $ktp->getClientOriginalName();
+        $path = 'data/foto';
+        $ktp->move($path, $namektp);
+
+        $kk = $request->file('kk');
+        $namekk = time() . "_" . $kk->getClientOriginalName();
+        $path = 'data/foto';
+        $kk->move($path, $namekk);
+
+        $sktm = $request->file('sktm');
+        $namesktm = time() . "_" . $sktm->getClientOriginalName();
+        $path = 'data/foto';
+        $sktm->move($path, $namesktm);
+
+        //file pdf
+        $transkip = $request->file('transkip');
+        $nametranskip = time() . "_" . $transkip->getClientOriginalName();
+        $path = 'data/pdf';
+        $transkip->move($path, $nametranskip);
+
+        $khs = $request->file('khs');
+        $namekhs = time() . "_" . $khs->getClientOriginalName();
+        $path = 'data/pdf';
+        $khs->move($path, $namekhs);
+
+        $suket_beasiswa = $request->file('suket_beasiswa');
+        $namesuket_beasiswa = time() . "_" . $suket_beasiswa->getClientOriginalName();
+        $path = 'data/pdf';
+        $suket_beasiswa->move($path, $namesuket_beasiswa);
+
+        $sertifikat = $request->file('sertifikat');
+        $namesertifikat = time() . "_" . $sertifikat->getClientOriginalName();
+        $path = 'data/pdf';
+        $sertifikat->move($path, $namesertifikat);
+
+        $motivation_later = $request->file('motivation_later');
+        $namemotivation_later = time() . "_" . $motivation_later->getClientOriginalName();
+        $path = 'data/pdf';
+        $motivation_later->move($path, $namemotivation_later);
+
+        BerkasModel::create([
+            'nama' => $request->nama,
             'nim' => $request->nim,
             'universitas' => $request->universitas,
             'prodi' => $request->prodi,
@@ -68,83 +94,39 @@ class MahasiswaCalonController extends Controller
             'pekerjaan_ayah' => $request->pekerjaan_ayah,
             'ibu' => $request->ibu,
             'pekerjaan_ibu' => $request->pekerjaan_ayah,
-            'saudara' => $request->jmlh_saudara,
-            // berkas
-            'foto' =>  $request->foto,
-            'ktp' => $request->ktp,
-            'kk' =>  $request->kk,
-            'transkip' => $request->transkip,
-            'khs' => $request->khs,
-            'suket_beasiswa' => $request->suket_beasiswa,
-            'sktm' => $request->sktm,
-            'sertifikat' => $request->sertifikat,
-            'motivation_later' => $request->motivation_later,
-            // 'category_id' => $request->category_id,
-            // 'agama' =>  $namePhoto,
+            'saudara' => $request->saudara,
+            'foto' => $namefoto,
+            'ktp' => $namektp,
+            'kk' => $namekk,
+            'transkip' => $nametranskip,
+            'khs' => $namekhs,
+            'suket_beasiswa' => $namesuket_beasiswa,
+            'sktm' => $namesktm,
+            'sertifikat' => $namesertifikat,
+            'motivation_later' => $namemotivation_later,
+            'status'=>'Di Review',
         ]);
-
 
         session()->flash("success", "Berhasil Diatambah");
         return redirect()->route('mahasiswa_calon.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $mahasiswa_calon = BerkasModel::find($id);
-        // session()->flash("success", "Berhasil Dihapus");
        return view('admin.mahasiswa_calon.detail_calon', compact('mahasiswa_calon'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function exportpdf($id)
     {
         $exportpdf= BerkasModel::find($id);
 
-        // $pdf = app('dompdf.wrapper');
+         $pdf = app('dompdf.wrapper');
 
 
-        // $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
-        // return $pdf->download('Berkas Mahasiswa.pdf');
-       return view('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
+         $pdf->loadview('admin.mahasiswa_calon.export-pdf',['exportpdf'=>$exportpdf]);
+         return $pdf->download('Berkas Mahasiswa.pdf');
+//       return view('admin.mahasiswa_calon.exportPDF',['exportpdf'=>$exportpdf]);
     }
 
     public function pdff(){
@@ -155,8 +137,8 @@ class MahasiswaCalonController extends Controller
         // return view('admin.mahasiswa_calon.export-pdf');
 
     }
-    public function kampus(){
 
+    public function kampus(){
         $title="Mahasiswa Calon";
         // dd(request('kampus'));
         // $calons = BerkasModel::where('status', 'Tidak Lolos' && 'universitas','');

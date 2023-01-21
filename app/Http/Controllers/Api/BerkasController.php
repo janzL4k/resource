@@ -36,7 +36,7 @@ class BerkasController extends Controller
             "alamat" => "required",
             "tgl_lahir" => "required|date",
             "tmp_lahir" => "required",
-            "jk" => "required|in:Laki-Laki,Perempuan",
+            "jenis_kelamin" => "required|in:Laki-Laki,Perempuan",
             "agama" => "required",
             "ayah" => "required",
             "pekerjaan_ayah" => "required",
@@ -48,6 +48,7 @@ class BerkasController extends Controller
             "kk" => "required|image|mimes:jpeg,png,jpg|max:5048",
             "transkip"=> "required|mimes:pdf|max:10000",
             "khs" => "required|mimes:pdf|max:10000",
+            "form_a1" => "required|mimes:pdf|max:10000",
             "suket_beasiswa"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sktm"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sertifikat"=> "required|mimes:pdf|max:10000",
@@ -74,7 +75,7 @@ class BerkasController extends Controller
         $namesktm = time() . "_" . $sktm->getClientOriginalName();
         $path = 'data/foto';
         $sktm->move($path, $namesktm);
-        
+
         $suket_beasiswa = $request->file('suket_beasiswa');
         $namesuket_beasiswa = time() . "_" . $suket_beasiswa->getClientOriginalName();
         $path = 'data/foto';
@@ -122,6 +123,7 @@ class BerkasController extends Controller
             'kk' => $namekk,
             'transkip' => $nametranskip,
             'khs' => $namekhs,
+            'form_a1' => $namekhs,
             'suket_beasiswa' => $namesuket_beasiswa,
             'sktm' => $namesktm,
             'sertifikat' => $namesertifikat,

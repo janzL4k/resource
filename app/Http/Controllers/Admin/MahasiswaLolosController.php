@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Mahasiswa;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use PDF;
 

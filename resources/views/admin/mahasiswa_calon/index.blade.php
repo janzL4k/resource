@@ -26,24 +26,23 @@
                             <th>Universitas</th>
                             <th>Prodi</th>
                             <th>Semester</th>
-                            <th>Status Mahasiswa</th>
-
+                            <th>Status Berkas</th>
                             <th> Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($calons as $calon)
+                        @foreach ( $data['listCalon'] as $calon )
                             <tr>
-                                <td>{{  $loop->iteration }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $calon->nama }}</td>
                                 <td>{{ $calon->nim }}</td>
                                 <td>{{ $calon->universitas }}</td>
                                 <td>{{ $calon->prodi }}</td>
                                 <td>{{ $calon->semester }}</td>
-                                <td>{{ $calon->status }}</td>
+                                <td> <span class="badge badge-warning">{{ $calon->status }}</span></td>
                                 <td class="text-center">
                                     <div class="d-flex d-inline justify-content-center">
-                                        <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('mahasiswa_calon.show', $calon->id) }}" class="btn btn-sm btn-primary ml-1">Review Berkas</a>
                                         <a href="{{ route('mahasiswa_calon.exportpdf', $calon->id) }}" class="btn btn-sm btn-success ml-1"><i class="fas fa-print"></i></a>
                                     </div>
                                 </td>
