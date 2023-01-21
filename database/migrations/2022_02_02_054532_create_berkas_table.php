@@ -30,16 +30,17 @@ class CreateBerkasTable extends Migration
             $table->string('ibu');
             $table->string('pekerjaan_ibu');
             $table->string('saudara');
-            $table->string('foto');
-            $table->string('ktp');
-            $table->string('kk');
-            $table->string('transkip');
-            $table->string('khs');
-            $table->string('suket_beasiswa');
-            $table->string('sktm');
-            $table->string('sertifikat');
-            $table->string('motivation_later');
-            $table->enum('status', ['Lolos', 'Tidak Lolos']);
+            $table->string('foto')->nullable();
+            $table->string('ktp')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('transkip')->nullable();
+            $table->string('khs')->nullable();
+            $table->string('form_a1')->nullable();
+            $table->string('suket_beasiswa')->nullable();
+            $table->string('sktm')->nullable();
+            $table->string('sertifikat')->nullable();
+            $table->string('motivation_later')->nullable();
+            $table->enum('status', ['Lolos', 'Tidak Lolos', 'Di Review'])->nullable();
             $table->timestamps();
         });
     }

@@ -84,7 +84,6 @@
                 });
             </script>
             @endif
-    </script>
 
 
     <!-- General JS Scripts -->

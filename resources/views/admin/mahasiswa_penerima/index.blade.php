@@ -40,7 +40,7 @@
                                 <td>{{ $lolos->universitas }}</td>
                                 <td>{{ $lolos->prodi }}</td>
                                 <td>{{ $lolos->semester }}</td>
-                                <td> <div class="btn btn-success">{{ $lolos->status }}</div></td>
+                                <td> <span class="badge badge-success">{{ $lolos->status }}</span></td>
                             </tr>
                         @endforeach
                     </tbody>

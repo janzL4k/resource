@@ -16,7 +16,6 @@
                 <a href="/berkas" class="btn btn-primary"><i
                         class="fas fa-arraow-back">Kembali</i></a>
             </div>
-
         </div>
         <div class="section-body">
             <form action="{{ route('berkas.store') }}" method="post" enctype="multipart/form-data">
@@ -37,16 +36,15 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Nim</label>
+                                        <label for="nim"> Nim </label>
                                         <input type="text" class="form-control @error('nim')
-                                        is-invalid
-                                        @enderror" name="nim" id="nim" required>
+                                        is-invalid @enderror" name="nim" id="nim" required>
                                         @error('nim')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Universitas</label>
+                                        <label for="universitas">Universitas</label>
                                         <input type="text" class="form-control @error('universitas')
                                         is-invalid
                                         @enderror" name="universitas" id="universitas" required>
@@ -57,7 +55,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Prodi</label>
+                                        <label for="prodi">Prodi</label>
                                         <input type="text" class="form-control @error('prodi')
                                         is-invalid
                                         @enderror" name="prodi" id="prodi" required>
@@ -66,7 +64,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Semester</label>
+                                        <label for="semester">Semester</label>
                                         <input type="number" class="form-control @error('semester')
                                         is-invalid
                                         @enderror" name="semester" id="semester" required>
@@ -76,7 +74,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class=" text-md-right text-left">Alamat</label>
+                                        <label for="alamat" class=" text-md-right text-left">Alamat</label>
                                         <textarea name="alamat" id="alamat" class="form-control @error('alamat')
                                         is-invalid
                                         @enderror" required></textarea>
@@ -85,8 +83,8 @@
                                         @enderror
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Tanggal Lahir</label>
+                                    <div class="col-sm-6 align-self-center">
+                                        <label for="tgl_lahir">Tanggal Lahir</label>
                                         <input type="date" class="form-control datemask @error('tgl_lahir')
                                         is-invalid
                                         @enderror" placeholder="YYYY/MM/DD"
@@ -95,89 +93,68 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Tempat Lahir</label>
+                                    <div class="col-sm-6 align-self-center">
+                                        <label for="tmp_lahir">Tempat Lahir</label>
                                         <input type="text" class="form-control @error('tmp_lahir')
                                         is-invalid
-                                        @enderror" name="tmp_lahir" required>
+                                        @enderror" name="tmp_lahir" id="tmp_lahir" required>
                                         @error('tmp_lahir')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="jenis_kelamin">* Jenis Kelamin</label>
-                                        <select name="jenis_kelamin" id="jenis_kelamin"
-                                                class="form-control @error('jenis_kelamin') is-invalid @enderror" required>
-                                            <option {{ old('jenis_kelamin') == '' ? 'selected' : '' }} disabled value="">
-                                                --Pilih--
-                                            </option>
-                                            <option
-                                                {{ old('jenis_kelamin') == 'Laki-Laki' ? 'selected' : '' }} value="Laki-Laki">
-                                                Laki-Laki
-                                            </option>
-                                            <option
-                                                {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }} value="Perempuan">
-                                                Perempuan
-                                            </option>
+                                <div class="row mt-4">
+                                    <div class="col-sm-6 align-self-center">
+                                        <div class="form-group">
+                                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                                        <select class="form-control-lg @error('jenis_kelamin') is-invalid @enderror "
+                                            id="jenis_kelamin" name="jenis_kelamin">
+                                            <option value="">--Pilih--</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
                                         </select>
                                         @error('jenis_kelamin')
                                         <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
+                                             {{ $message }}
+                                        </span>
                                         @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="agama">* Agama</label>
-                                        <select name="agama" id="agama"
-                                                class="form-control @error('agama') is-invalid @enderror" required>
-                                            <option {{ old('agama') == '' ? 'selected' : '' }} disabled value="">
-                                                --Pilih--
-                                            </option>
-                                            <option {{ old('agama') == 'Islam' ? 'selected' : '' }} value="Islam">
-                                                Islam
-                                            </option>
-                                            <option
-                                                {{ old('agama') == 'Kristen' ? 'selected' : '' }} value="Kristen">
-                                                Kristen
-                                            </option>
-                                            <option
-                                                {{ old('agama') == 'Katolik' ? 'selected' : '' }} value="Katolik">
-                                                Katolik
-                                            </option>
-                                            <option {{ old('agama') == 'Hindu' ? 'selected' : '' }} value="Hindu">
-                                                Hindu
-                                            </option>
-                                            <option {{ old('agama') == 'Buddha' ? 'selected' : '' }} value="Buddha">
-                                                Buddha
-                                            </option>
-                                            <option
-                                                {{ old('agama') == 'Konghucu' ? 'selected' : '' }} value="Konghucu">
-                                                Konghucu
-                                            </option>
+                                    <div class="col-sm-6 align-self-center">
+                                        <div class="form-group">
+                                        <label for="agama">Agama</label>
+                                        <select
+                                            class="form-control-lg @error('agama') is-invalid @enderror "
+                                            id="agama" name="agama">
+                                            <option disabled selected value="">--Pilih--</option>
+                                           @foreach($data['agama'] as $item)
+                                                <option value="Islam"></option>
+                                            @endforeach
                                         </select>
                                         @error('agama')
                                         <span class="invalid-feedback" role="alert">
-                                                {{ $message }}
-                                            </span>
+                                                            {{ $message }}
+                                                        </span>
                                         @enderror
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Nama Ayah</label>
-                                        <input type="text" class="form-control @error('ayah')
+                                <div class="row">
+                                    <div class="col-sm-6 align-self-center">
+                                        <div class="form-group">
+                                            <label for="ayah">Nama Ayah</label>
+                                            <input type="text" class="form-control @error('ayah')
                                         is-invalid
                                         @enderror" name="ayah" id="ayah">
-                                        @error('ayah')
-                                        <span class="text-danger">
+                                            @error('ayah')
+                                            <span class="text-danger">
                                         {{ $message }}
                                         </span>
-                                        @enderror
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Pekerjaan Ayah</label>
+                                    <div class="form-group col-sm-6 align-self-center">
+                                        <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
                                         <input type="text" class="form-control @error('pekerjaan_ayah')
                                         is-invalid
                                         @enderror" name="pekerjaan_ayah" id="pekerjaan_ayah">
@@ -190,7 +167,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label>Nama Ibu</label>
+                                        <label for="ibu">Nama Ibu</label>
                                         <input type="text" class="form-control @error('ibu')
                                         is-invalid
                                         @enderror" name="ibu" id="ibu" required>
@@ -201,7 +178,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Pekerjaan Ibu</label>
+                                        <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
                                         <input type="text" class="form-control @error('pekerjaan_ibu')
                                         is-invalid
                                         @enderror" name="pekerjaan_ibu" id="pekerjaan_ibu" required>
@@ -213,7 +190,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Jumlah Saudara</label>
+                                    <label for="saudara">Jumlah Saudara</label>
                                     <input type="text" class="form-control @error('saudara')
                                     is-invalid
                                     @enderror" name="saudara" id="saudara">
@@ -237,8 +214,8 @@
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('foto')
                                         is-invalid
-                                        @enderror" id="foto" name="foto" required>
-                                        <label class="input-group-text bg-primary text-white" for="foto">Pilih File </label>
+                                        @enderror" id="foto" name="foto" >
+                                        <label class="input-group-text bg-primary text-white">Pilih File </label>
                                         @error('foto')
                                         <span class="text-danger">
                                         {{ $message }}
@@ -334,7 +311,7 @@
                                     <div class="input-group">
                                         <input type="file" class="form-control @error('sertifikat')
                                         is-invalid
-                                        @enderror" name="sertifikat" id="sertifikat" required>
+                                        @enderror" name="sertifikat" id="sertifikat" >
                                         <label class="input-group-text bg-primary text-white" for="sertifikat">Pilih File </label>
                                         @error('sertifikat')
                                         <span class="text-danger">
@@ -348,7 +325,7 @@
                                      <div class="input-group">
                                         <input type="file" class="form-control @error('motivation_later')
                                         is-invalid
-                                        @enderror" name="motivation_later" id="motivation_later" required>
+                                        @enderror" name="motivation_later" id="motivation_later" >
                                         <label class="input-group-text bg-primary text-white" for="motivation_later">Pilih File </label>
                                         @error('motivation_later')
                                         <span class="text-danger">
@@ -369,6 +346,5 @@
                 </form>
         </div>
     </div>
-    </div>
-    </div>
+
 @endsection

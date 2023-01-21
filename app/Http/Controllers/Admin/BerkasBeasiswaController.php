@@ -5,30 +5,50 @@ namespace App\Http\Controllers\Admin;
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Facade;
 
 class BerkasBeasiswaController extends Controller
 {
     public function index()
     {
         $title="Dashboard GenBi";
-        $datas = BerkasModel::latest();
-        $jumlah_berkas=BerkasModel::count();
-        if(request('search')){
-            $datas->where('nama', 'like', "%" .request('search') . "%")
-            ->orWhere('universitas', 'like', "%" .request('search') . "%")
-            ->orWhere('nim', 'like', "%" .request('search') . "%");
-        }
+        $berkasmahasiswa = BerkasModel::latest()->get();
 
-        return view("admin.berkas_beasiswa.index",[
-                "datas"=>$datas->get(),
-                "title"=>$title,
-                "jumlah_berkas"=>$jumlah_berkas
+        $data = Collection::empty();
+        $data->put('title', $title);
+        $data->put('berkasmahasiswa', $berkasmahasiswa);
+
+        return view('admin.berkas_beasiswa.index',[
+            'data'=> $data
             ]);
     }
 
     public function create()
     {
-       return view('admin.berkas_beasiswa.tambah');
+        $berkasMahasiswa = BerkasModel::all();
+
+        $jenisKelamin = Collection::empty();
+        $jenisKelamin->add("Laki-Laki");
+        $jenisKelamin->add("Perempuan");
+
+        $agama = Collection::empty();
+        $agama->add("Islam");
+        $agama->add("Kristen");
+        $agama->add("Katolik");
+        $agama->add("Hindu");
+        $agama->add("Buddha");
+        $agama->add("Konghucu");
+
+        $data = Collection::empty();
+        $data->put('agama', $agama);
+        $data->put('jenisKelamin', $jenisKelamin);
+        $data->put('berkasMahasiswa', $berkasMahasiswa);
+
+       return view('admin.berkas_beasiswa.tambah', [
+           'data' => $data,
+       ]);
     }
 
     public function store(Request $request)
@@ -36,14 +56,14 @@ class BerkasBeasiswaController extends Controller
 
         $request->validate([
             "nama" => "required",
-            "nim" => "required",
+            "nim" => "required|numeric",
             "universitas" => "required",
             "prodi" => "required",
             "semester" => "required|numeric",
             "alamat" => "required",
             "tgl_lahir" => "required|date",
             "tmp_lahir" => "required",
-            "jk" => "required",
+            "jenis_kelamin" => "required|in:Laki-Laki,Perempuan",
             "agama" => "required",
             "ayah" => "required",
             "pekerjaan_ayah" => "required",
@@ -55,10 +75,12 @@ class BerkasBeasiswaController extends Controller
             "kk" => "required|image|mimes:jpeg,png,jpg|max:5048",
             "transkip"=> "required|mimes:pdf|max:10000",
             "khs" => "required|mimes:pdf|max:10000",
+            "form_a1" => "required|mimes:pdf|max:10000",
             "suket_beasiswa"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sktm"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sertifikat"=> "required|mimes:pdf|max:10000",
             "motivation_later" => "required|mimes:pdf|max:10000",
+
         ]);
 
         $foto = $request->file('foto');
@@ -78,14 +100,14 @@ class BerkasBeasiswaController extends Controller
 
         $sktm = $request->file('sktm');
         $namesktm = time() . "_" . $sktm->getClientOriginalName();
-        $path = 'data/foto';
+        $path = 'data/pdf';
         $sktm->move($path, $namesktm);
 
         $suket_beasiswa = $request->file('suket_beasiswa');
         $namesuket_beasiswa = time() . "_" . $suket_beasiswa->getClientOriginalName();
         $path = 'data/foto';
         $suket_beasiswa->move($path, $namesuket_beasiswa);
-        
+
         //file pdf
         $transkip = $request->file('transkip');
         $nametranskip = time() . "_" . $transkip->getClientOriginalName();
@@ -116,8 +138,8 @@ class BerkasBeasiswaController extends Controller
             'alamat' => $request->alamat,
             'tgl_lahir' => $request->tgl_lahir,
             'tmp_lahir' => $request->tmp_lahir,
-            'jk' => $request->jk,
-            'agama' =>  $request->agama,
+            'jenis_kelamin' => 'Laki-Laki',
+            'agama' =>  'Perempuan',
             'ayah' => $request->ayah,
             'pekerjaan_ayah' => $request->pekerjaan_ayah,
             'ibu' => $request->ibu,
@@ -128,6 +150,7 @@ class BerkasBeasiswaController extends Controller
             'kk' => $namekk,
             'transkip' => $nametranskip,
             'khs' => $namekhs,
+            'form_a1' => "a1.pdf",
             'suket_beasiswa' => $namesuket_beasiswa,
             'sktm' => $namesktm,
             'sertifikat' => $namesertifikat,

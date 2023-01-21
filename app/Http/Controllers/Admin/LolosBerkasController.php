@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\BerkasModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
 class LolosBerkasController extends Controller
@@ -21,15 +22,22 @@ class LolosBerkasController extends Controller
     }
 
     public function update($id){
-        $calons = BerkasModel::all();
-        $no  =1;
+
+        $title="Dashboard GenBi";
+        $listCalon = BerkasModel::where('status', 'Di Review')->get();
+
         $siswa = BerkasModel::findOrFail($id);
         $siswa->status = 'Lolos';
         $siswa->save();
 
-        session()->flash("success", "Calon mahasiswa berhasil diaktifkan.");
-        return view('admin.mahasiswa_calon.index', compact('calons', 'no'));
+        $data = Collection::empty();
+        $data->put('title',$title);
+        $data->put('listCalon',$listCalon);
+
+        session()->flash("success", "Mahasiswa Diluluskan.");
+        return redirect()->route('mahasiswa_calon.index',
+            [
+                "data"=>$data,
+            ]);
      }
-
-
 }

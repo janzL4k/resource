@@ -55,9 +55,9 @@ Route::middleware('authorization.admin')->group(function () {
     //export pdf
     Route::get('mahasiswa_calon.exportpdf/{id}', [MahasiswaCalonController::class, 'exportpdf'])->name('mahasiswa_calon.exportpdf');
     Route::get('mahasiswa_calon.pdff', [MahasiswaCalonController::class, 'pdff'])->name('mahasiswa_calon.pdff');
- //Route search
- Route::get('mahasiswa_calon.search', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.search');
- Route::get('mahasiswa_calon.kampus', [MahasiswaCalonController::class, 'kampus'])->name('mahasiswa_calon.kampus');
+     //Route search
+     Route::get('mahasiswa_calon.search', [MahasiswaCalonController::class, 'index'])->name('mahasiswa_calon.search');
+     Route::get('mahasiswa_calon.kampus', [MahasiswaCalonController::class, 'kampus'])->name('mahasiswa_calon.kampus');
 
     //controller Berkas lolos
     Route::get('set_lolos.index', [LolosBerkasController::class, 'index'])->name('set_lolos.index');
@@ -68,19 +68,18 @@ Route::middleware('authorization.admin')->group(function () {
     Route::get('mahasiswa_penerima.index', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.index');
     Route::get('mahasiswa_penerima.export', [MahasiswaLolosController::class, 'export'])->name('mahasiswa_penerima.export');
     Route::get('mahasiswa_penerima.export_pdf', [MahasiswaLolosController::class, 'export_pdf'])->name('mahasiswa_penerima.export_pdf');
- //Route search
- Route::get('mahasiswa_penerima.search', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.search');
+     //Route search
+     Route::get('mahasiswa_penerima.search', [MahasiswaLolosController::class, 'index'])->name('mahasiswa_penerima.search');
 
         //data kampus penerima
     Route::get('data_kampus.index', [DatakampusController::class, 'index'])->name('data.kampus.index');
     Route::get('kampus.create', [DatakampusController::class, 'create'])->name('kampus.create');
     Route::get('kampus.show/{id}', [DatakampusController::class, 'show'])->name('kampus.show');
-    Route::post('kampus.store', [DatakampusController::class, 'store'])->name('kampus.store');
-    Route::get('kampus.store', [DatakampusController::class, 'store'])->name('kampus.store');
+     Route::get('kampus.store', [DatakampusController::class, 'store'])->name('kampus.store');
     Route::get('kampus.destroy/{id}', [DatakampusController::class, 'destroy'])->name('kampus.destroy');
     Route::get('kampus.edit/{id}', [DatakampusController::class, 'edit'])->name('kampus.edit');
     Route::put('kampus.update/{id}', [DatakampusController::class, 'update'])->name('kampus.update');
-    Route::post('kampus.update/{id}', [DatakampusController::class, 'update'])->name('kampus.update');
+//    Route::post('kampus.update/{id}', [DatakampusController::class, 'update'])->name('kampus.update');
 
         //profile
     Route::get('profile.index', [ProfilController::class, 'index'])->name('profil.index');
@@ -93,8 +92,7 @@ Route::middleware('authorization.admin')->group(function () {
     Route::post('pengumuman.store', [PengumumanController::class, 'store'])->name('pengumuman.store');
     Route::get('pengumuman.edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
     Route::put('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
-    Route::post('pengumuman.update/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
-    Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+   Route::get('pengumuman.destroy/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 
 });

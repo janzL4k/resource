@@ -17,234 +17,136 @@
                 <form action="{{ route('set_lolos.update', $mahasiswa_calon->id) }}" method="post">
                     @csrf
                     <button type="submit" class="btn btn-success btn-sm ml-1 "
-                            onclick="return confirm('Apa Anda yakin Loloskan ?');"><i class="fas fa-check-circle"></i> Set
-                        Lolos</button>
+                            onclick="return confirm('Mahasiswa Akan Di Luluskan ?');"><i class="fas fa-check-circle"></i>
+                        Set
+                        Lolos
+                    </button>
                 </form>
-                <div class="info float-right ml-1">
-                    <button class="btn btn-danger " disabled>  {{ $mahasiswa_calon->status}}</button>
-                </div>
             </div>
         </div>
+
         <div class="section-body">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <h6 class="text-primary">Data Mahasiswa</h6>
-                                <label for="nama">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama" disabled
-                                    name="{{ $mahasiswa_calon->nama }}" value="{{ $mahasiswa_calon->nama }}"
-                                    placeholder="{{ $mahasiswa_calon->nama }}">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Nim</label>
-                                    <input type="text" class="form-control" name="nim" disabled
-                                        value="{{ $mahasiswa_calon->nim }}" placeholder="{{ $mahasiswa_calon->nim }}">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Universitas</label>
-                                    <input type="text" class="form-control" name="universitas" disabled
-                                        value="{{ $mahasiswa_calon->universitas }}"
-                                        placeholder="{{ $mahasiswa_calon->universitas }}">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Prodi</label>
-                                    <input type="text" class="form-control" name="prodi" disabled
-                                        value="{{ $mahasiswa_calon->prodi }}"
-                                        placeholder="{{ $mahasiswa_calon->prodi }}">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Semester</label>
-                                    <input type="text" class="form-control" name="semester" disabled
-                                        value="{{ $mahasiswa_calon->semester }}"
-                                        placeholder="{{ $mahasiswa_calon->semester }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class=" text-md-right text-left">Alamat</label>
-                                <textarea name="alamat" class="form-control" disabled
-                                    value="{{ $mahasiswa_calon->alamat }}"
-                                    placeholder="{{ $mahasiswa_calon->alamat }}"></textarea>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Tanggal Lahir</label>
-                                    <input type="date" class="form-control datemask" disabled
-                                        value="{{ $mahasiswa_calon->tgl_lahir }}"
-                                        placeholder="{{ $mahasiswa_calon->tgl_lahir }}" name="tgl_lahir">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Tempat Lahir</label>
-                                    <input type="text" class="form-control" name="tmp_lahir" disabled
-                                        value="{{ $mahasiswa_calon->tmp_lahir }}"
-                                        placeholder="{{ $mahasiswa_calon->tmp_lahir }}">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Jenis Kelamin</label>
-                                    <select class="form-control form-control-lg" name="jk" disabled
-                                        value="{{ $mahasiswa_calon->jk }}" placeholder="{{ $mahasiswa_calon->jk }}">
-                                        <option>{{ $mahasiswa_calon->jk }} </option>
-
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Agama</label>
-                                    <select class="form-control form-control-lg" name="agama" disabled
-                                        value="{{ $mahasiswa_calon->agama }}"
-                                        placeholder="{{ $mahasiswa_calon->agama }}">
-                                        <option>{{ $mahasiswa_calon->agama }} </option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Nama Ayah</label>
-                                    <input type="text" class="form-control" name="ayah" disabled
-                                        value="{{ $mahasiswa_calon->ayah }}"
-                                        placeholder="{{ $mahasiswa_calon->ayah }}">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Pekerjaan Ayah</label>
-                                    <input type="text" class="form-control" name="pekerjaan_ayah" disabled
-                                        value="{{ $mahasiswa_calon->pekerjaan_ayah }}"
-                                        placeholder="{{ $mahasiswa_calon->pekerjaan_ayah }}">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Nama Ibu</label>
-                                    <input type="text" class="form-control" name="ibu" disabled
-                                        value="{{ $mahasiswa_calon->ibu }}" placeholder="{{ $mahasiswa_calon->ibu }}">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Pekerjaan Ibu</label>
-                                    <input type="text" class="form-control" name="pekerjaan_ibu" disabled
-                                        value="{{ $mahasiswa_calon->pekerjaan_ibu }}"
-                                        placeholder="{{ $mahasiswa_calon->pekerjaan_ibu }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Jumlah Saudara</label>
-                                <input type="text" class="form-control" name="jmlh_saudara" disabled
-                                    value="{{ $mahasiswa_calon->jmlh_saudara }}"
-                                    placeholder="{{ $mahasiswa_calon->saudara }}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 ">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <h6 class="text-primary">Berkas Pendaftar</h6>
-                                <label>Foto</label>
-
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="foto"
-                                        value="{{ $mahasiswa_calon->foto }}" disabled placeholder="">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>KTP</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02"
-                                        name="{{ $mahasiswa_calon->foto }}" value="{{ $mahasiswa_calon->ktp }}"
-                                        disabled placeholder="{{ $mahasiswa_calon->ktp }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Kartu Keluarga</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="kk"
-                                        value="{{ $mahasiswa_calon->kk }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->kk }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Transkip Nilai</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="transkip"
-                                        value="{{ $mahasiswa_calon->transkip }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->transkip }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Form A1</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="khs"
-                                        value="{{ $mahasiswa_calon->khs }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->khs }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Surat Rekomendasi Beasiswa</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="suket_beasiswa"
-                                        value="{{ $mahasiswa_calon->suket_beasiswa }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->suket_beasiswa }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>SKTM/Slip Gaji</label>
-                                <div class="input-group">
-                                    <input class="form-control" id="inputGroupFile02" name="sktm"
-                                        value="{{ $mahasiswa_calon->sktm }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->sktm }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Piagam Sertifikat</label>
-                                <div class="input-group">
-                                    <input class="form-control" name="sertifikat"
-                                        value="{{ $mahasiswa_calon->sertifikat }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->sertifikat }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Motivation Later</label>
-                                <div class="input-group">
-                                    <input class="form-control" name="motivation_later"
-                                        value="{{ $mahasiswa_calon->motivation_later }}" disabled
-                                        placeholder="{{ $mahasiswa_calon->motivation_later }}">
-                                    <label class="input-group-text bg-primary text-white" for="inputGroupFile02">Pilih
-                                        File </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                {{-- </form> --}}
+            <div class="text-center" style="text-align: center">
+                <center>
+                    <img src="https://www.bi.go.id/id/SiteAssets/bi-b.png" style="width: 50%;">
+                    <h4 style="margin-top: -2%;">Berkas Pendaftar Beasiswa Bank Indonesia Tahun 2022/2023</h4>
+                </center>
             </div>
-        </div>
-    @endsection
+            <br>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <div class="card-body">
+                        <h6 class="text-primary">Detail Mahasiswa</h6>
+                        <table class="table">
+                            <tr>
+                                <th>Nama</th>
+                                <td>{{ $mahasiswa_calon->nama }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nim</th>
+                                <td>{{ $mahasiswa_calon->nim }}</td>
+                            </tr>
+                            <tr>
+                                <th>Universitas</th>
+                                <td>{{ $mahasiswa_calon->universitas }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prodi</th>
+                                <td>{{ $mahasiswa_calon->prodi }}</td>
+                            </tr>
+                            <tr>
+                                <th>Semester</th>
+                                <td>{{ $mahasiswa_calon->semester }}</td>
+                            </tr>
+                            <tr>
+                                <th>Alamat</th>
+                                <td>{{ $mahasiswa_calon->alamat }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tgl Lahir</th>
+                                <td>{{ $mahasiswa_calon->tgl_lahir }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tempat Lahir</th>
+                                <td>{{ $mahasiswa_calon->temp_lahir }}</td>
+                            </tr>
+                            <tr>
+                                <th>Jenis Kelamin</th>
+                                <td>{{ $mahasiswa_calon->jenis_kelamin }}</td>
+                            </tr>
+                            <tr>
+                                <th>Agama</th>
+                                <td>{{ $mahasiswa_calon->agama }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Ayah</th>
+                                <td>{{ $mahasiswa_calon->ayah }}</td>
+                            </tr>
+                            <tr>
+                                <th>Pekerjaan Ayah</th>
+                                <td>{{ $mahasiswa_calon->pekerjaan_ayah }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Ibu</th>
+                                <td>{{ $mahasiswa_calon->ibu }}</td>
+                            </tr>
+                            <tr>
+                                <th>Pekerjaan Ibu</th>
+                                <td>{{ $mahasiswa_calon->perkjaan_ibu }}</td>
+                            </tr>
+                            <tr>
+                                <th>Jumlah Saudara</th>
+                                <td>{{ $mahasiswa_calon->saudara }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <img src="{{ $mahasiswa_calon->foto }}" width="100%" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr align=“center” size=“2” width=“50%”>
+
+            <div class="container">
+                <h6 class="text-primary">Berkas Pendaftar</h6>
+                <div class="card mt-4 mb-4">
+                    <div class="row">
+                        <div class="card-body">
+                            <h5>2. KTP (Kartu Tanda Penduduk)</h5>
+                            <img src="{{ $mahasiswa_calon->ktp }}" width="100%;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body">
+                            <h5 class="mb-2">3. Kartu Keluarga</h5>
+                            <img src="{{ $mahasiswa_calon->kk }}" width="100%;">
+                            <br>
+                            <h5>4. Transkip Nilai pdf</h5>
+{{--                            <img src="{{ $mahasiswa_calon->transkip }}" width="100%;">--}}
+                            <br>
+                            <h5>5.Form A1</h5>
+                            <img src="{{ $mahasiswa_calon->form_a1 }}" width="100%;">
+                            <br>
+                            <h5>6. Surat Keterangan Beasiswa</h5>
+                            <img src="{{ $mahasiswa_calon->suket_beasiswa }}" width="100%;">
+                            <br>
+                            <h5>7. SKTM (Surat Keterangan Kurang Mampu)</h5>
+                            <img src="{{ $mahasiswa_calon->sktm }}" width="100%;">
+                            <br>
+                            <h5>8. Piagam Sertifikat (Berkas Tambahan)/Slip Gaji Ortua pdf</h5>
+{{--                            <img src="{{ $mahasiswa_calon->sertifikat }}" width="100%;">--}}
+                            <br>
+                            <h5>9. Motivation Later pdf</h5>
+{{--                            <img src="{{ $mahasiswa_calon->motivation_later }}" width="100%;">--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+@endsection
