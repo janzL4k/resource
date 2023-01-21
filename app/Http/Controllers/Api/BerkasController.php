@@ -53,7 +53,6 @@ class BerkasController extends Controller
             "sktm"=> "required|image|mimes:jpeg,png,jpg|max:5048",
             "sertifikat"=> "required|mimes:pdf|max:10000",
             "motivation_later" => "required|mimes:pdf|max:10000",
-
         ]);
 
         $foto = $request->file('foto');
@@ -87,10 +86,10 @@ class BerkasController extends Controller
         $path = 'data/pdf';
         $transkip->move($path, $nametranskip);
 
-        $khs = $request->file('khs');
-        $namekhs = time() . "_" . $khs->getClientOriginalName();
+        $form_a1= $request->file('form_a1');
+        $nameForm_a1 = time() . "_" . $form_a1->getClientOriginalName();
         $path = 'data/pdf';
-        $khs->move($path, $namekhs);
+        $form_a1->move($path, $nameForm_a1);
 
         $sertifikat = $request->file('sertifikat');
         $namesertifikat = time() . "_" . $sertifikat->getClientOriginalName();
@@ -111,7 +110,7 @@ class BerkasController extends Controller
             'alamat' => $request->alamat,
             'tgl_lahir' => $request->tgl_lahir,
             'tmp_lahir' => $request->tmp_lahir,
-            'jk' => $request->jk,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'agama' =>  $request->agama,
             'ayah' => $request->ayah,
             'pekerjaan_ayah' => $request->pekerjaan_ayah,
@@ -122,8 +121,7 @@ class BerkasController extends Controller
             'ktp' => $namektp,
             'kk' => $namekk,
             'transkip' => $nametranskip,
-            'khs' => $namekhs,
-            'form_a1' => $namekhs,
+            'form_a1' => $nameForm_a1,
             'suket_beasiswa' => $namesuket_beasiswa,
             'sktm' => $namesktm,
             'sertifikat' => $namesertifikat,
