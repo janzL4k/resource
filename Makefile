@@ -16,7 +16,7 @@ PREFIX=$(shell echo $(PWD) | sed -e s:$(HOME):$(DIND_PREFIX):)
 TS=$(shell date "+%Y%m%d%s")
 PWD=$(shell pwd)
 
-include .env
+# include .env
 
 build:
 	docker build -f deployments/Dockerfile -t $(TAG) .
