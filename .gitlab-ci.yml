@@ -1,0 +1,25 @@
+image: docker:dind
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  
+build: 
+  stage: build
+  before_script:
+    - mkdir -p ~/.ssh || true
+    - eval `ssh-agent -s`
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+    - apk add make docker-compose
+    - docker system prune -f -a
+    - docker image prune -f -a
+    - docker login -u "$HUB_USERNAME" -p "$HUB_PASSWORD"
+  script:
+    - export TAGID=prod-$(date "+%Y%m%d")-$CI_PIPELINE_ID
+    - export TAG=kusumaningrat16/resource:$TAGID
+    - make TAG=$TAG build
+    - docker push $TAG

@@ -19,6 +19,6 @@ PWD=$(shell pwd)
 include .env
 
 build:
-	docker build -f build/release/Dockerfile -t $(TAG) .
+	docker build -f deployments/Dockerfile -t $(TAG) .
 
 .PHONY: build
