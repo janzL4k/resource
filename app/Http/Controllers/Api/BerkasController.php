@@ -121,7 +121,6 @@ class BerkasController extends Controller
             'ktp' => $namektp,
             'kk' => $namekk,
             'transkip' => $nametranskip,
-            'khs' => $namekhs,
             'form_a1' => $nameForm_a1,
             'suket_beasiswa' => $namesuket_beasiswa,
             'sktm' => $namesktm,
