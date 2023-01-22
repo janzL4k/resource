@@ -21,4 +21,7 @@ PWD=$(shell pwd)
 build:
 	docker build -f deployments/Dockerfile -t $(TAG) .
 
+proxy:
+	docker build -f proxy/Dockerfile -t $(TAG) .
+
 .PHONY: build
