@@ -22,6 +22,6 @@ build:
 	docker build -f deployments/Dockerfile -t $(TAG) .
 
 proxy:
-	docker build -f proxy/Dockerfile -t $(TAG) .
+	docker build -t $(TAG) .
 
 .PHONY: build proxy

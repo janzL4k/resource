@@ -4,4 +4,4 @@ WORKDIR /var/www
 
 COPY . /var/www
 
-COPY ./default.conf /etc/nginx/conf.d/
+COPY proxy/default.conf /etc/nginx/conf.d/
