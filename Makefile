@@ -24,4 +24,4 @@ build:
 proxy:
 	docker build -f proxy/Dockerfile -t $(TAG) .
 
-.PHONY: build
+.PHONY: build proxy

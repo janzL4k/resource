@@ -4,8 +4,8 @@ services:
   - docker:dind
 
 stages:
-  - build
   - build-proxy
+  - build
 
 build-proxy: 
   stage: build-proxy
